@@ -35,6 +35,8 @@ class ViewComposerServiceProvider extends ServiceProvider
         ],'App\ViewComposers\AdminComposers\ProductsComposer');
 
 
+        View::composer(['site.packages.list'],'App\ViewComposers\SiteComposers\PackagesComposer');
+
     }
 
     /**

@@ -29,6 +29,16 @@ Route::resource('products', ProductController::class);
 Route::resource('packages', PackageController::class);
 Route::resource('features', FeatureController::class);
 
+/**
+ *
+ * Site Routes
+ *
+ */
+
+Route::get('/our-packages', 'PackageController@index')->name('site.packages');
+
+
+
 
 //==========================================================
 

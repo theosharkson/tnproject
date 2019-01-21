@@ -57,6 +57,7 @@
         "sort-packages": true,
         "optimize-autoloader": true
     },
+    "platform": { "php": "7.0" },
     "minimum-stability": "dev",
     "prefer-stable": true
 }

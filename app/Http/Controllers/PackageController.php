@@ -14,7 +14,7 @@ class PackageController extends Controller
      */
     public function index()
     {
-        //
+        return view('site.packages.list');
     }
 
     /**
@@ -122,7 +122,14 @@ class PackageController extends Controller
             $package->update($params);
         } catch (Exception $e) {
             return redirect()->back()->with('error_message','Sorry, Unable to Update Package.');
-        }   
+        }  
+
+        try {
+            $package->products()->sync($params['package_products']);
+        } catch (Exception $e) {
+            return redirect()->back()->with('error_message','Sorry, Unable to Aattach Products.');
+        }
+
 
         return redirect()->back()->with('success_message','Package Updated successfully!!');
     }

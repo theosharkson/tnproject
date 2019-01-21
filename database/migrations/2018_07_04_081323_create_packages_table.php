@@ -21,6 +21,8 @@ class CreatePackagesTable extends Migration
             $table->double('price_d')->nullable();
             $table->double('price_coin')->nullable();
             $table->string('image')->nullable();
+            $table->integer('type_id')->unsigned();
+            $table->foreign('type_id')->references('id')->on('package_types');
             $table->integer('active_status')->default('1');
             $table->timestamps();
         });

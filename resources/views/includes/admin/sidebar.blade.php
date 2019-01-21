@@ -1,113 +1,48 @@
-<div class="page-sidebar">
-    <!-- START X-NAVIGATION -->
-    <ul class="x-navigation">
-        <li class="xn-logo">
-          {{-- <p class="logo-t">MEMORIES4EVER</p> --}}
-            <a href="#"></a>
-            <a href="#" class="x-navigation-control"></a>
-        </li>
-        <li class="xn-profile">
-            <a href="#" class="profile-mini">
-                <img src="{{asset('/admin-assets/assets/images/users/user.png')}}" alt="John Doe"/>
-            </a>
-            <div class="profile">
-                <div class="profile-image">
-                    <img src="{{asset('/admin-assets/assets/images/users/user.png')}}" alt=""/>
+<div id="sidebar" class="sidebar">
+    <!-- begin sidebar scrollbar -->
+    <div data-scrollbar="true" data-height="100%">
+        <!-- begin sidebar user -->
+        <ul class="nav">
+            <li class="nav-profile">
+                <div class="image">
+                    <a href="javascript:;"><img src="{{asset('/admin-assets/img/user-12.jpg')}}" alt="" /></a>
                 </div>
-                <div class="profile-data">
-                    <div class="profile-data-name">{{ Auth::user()?Auth::user()->name:'' }}</div>
-                    <div class="profile-data-title">{{ Auth::user()?Auth::user()->type->name:'' }}</div>
+                <div class="info">
+                    {{ Auth::user()?Auth::user()->name:'' }}
+                    <small>{{ Auth::user()?Auth::user()->name:'TBM' }}</small>
                 </div>
-                <div class="profile-controls">
+            </li>
+        </ul>
+        <!-- end sidebar user -->
+        <!-- begin sidebar nav -->
+        <ul class="nav">
+            <li class="nav-header">Navigation</li>
+            
+            <li class="{{in_array(Request::route()->getName(), [
+                              'home',
 
-                    <a href="" class="profile-control-left"><span class="fa fa-desktop"></span></a>
-
-                    <a href="" class="profile-control-right"><span class="fa fa-shopping-cart"></span></a>
-                </div>
-            </div>                                                                        
-        </li>
-        <li class="xn-title">Navigation</li>
-        <li class="{{in_array(Request::route()->getName(), [
-                              'dashboard',
                               ]) ? 'active' : ''}}">
-            <a href="{{route('dashboard')}}">
-              <span class="fa fa-desktop"></span> 
-              <span class="xn-text">Dashboard</span>
-            </a>                        
-        </li>                  
-        <li class="xn-openable {{in_array(Request::route()->getName(), [
-                              'user-types.index',
-                              'user-types.edit',
-                              'user-types.create',
-                              'staffs.create',
-                              'staffs.edit',
-                              'staffs.index',
-                              ]) ? 'active' : ''}}">
-            <a href="#"><span class="fa fa-users"></span> 
-                <span class="xn-text">Staff Management</span>
-            </a>
-            <ul>
-                <li class="{{in_array(Request::route()->getName(), [
-                              'user-types.index',
-                              'user-types.edit',
-                              'user-types.create',
-                              ]) ? 'active' : ''}}">
-                    <a href="{{route('user-types.create')}}">
-                        <span class="fa fa-cogs"></span> 
-                        User Types Setup
-                    </a>
-                </li>
+                <a href="{{route('home')}}">
+                    <i class="fa fa-laptop"></i> 
+                    <span>Dashboard</span>
+                </a>
+            </li>
 
-                <li class="{{in_array(Request::route()->getName(), [
-                              'staffs.create',
-                              'staffs.edit',
-                              ]) ? 'active' : ''}}">
-                    <a href="{{route('staffs.create')}}">
-                        <span class="fa fa-user"></span> 
-                        Staffs
-                    </a>
-                </li>
+            
 
-            </ul>
-        </li>
+            
 
-        <li class="xn-openable {{in_array(Request::route()->getName(), [
-                              'products.index',
-                              'products.edit',
-                              'products.create',
-                              'packages.create',
-                              'packages.edit',
-                              'packages.index',
-                              ]) ? 'active' : ''}}">
-            <a href="#"><span class="fa fa-users"></span> 
-                <span class="xn-text">Packages/Products</span>
-            </a>
-            <ul>
-                <li class="{{in_array(Request::route()->getName(), [
-                              'products.index',
-                              'products.edit',
-                              'products.create',
-                              ]) ? 'active' : ''}}">
-                    <a href="{{route('products.create')}}">
-                        <span class="fa fa-gift"></span> 
-                        Products
-                    </a>
-                </li>
 
-                <li class="{{in_array(Request::route()->getName(), [
-                              'packages.create',
-                              'packages.edit',
-                              ]) ? 'active' : ''}}">
-                    <a href="{{route('packages.create')}}">
-                        <span class="glyphicon glyphicon-gift"></span> 
-                        Packages
-                    </a>
-                </li>
 
-            </ul>
-        </li>
 
-        
-    </ul>
-    <!-- END X-NAVIGATION -->
+
+
+            <!-- begin sidebar minify button -->
+            <li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
+            <!-- end sidebar minify button -->
+        </ul>
+        <!-- end sidebar nav -->
+    </div>
+    <!-- end sidebar scrollbar -->
 </div>
+<div class="sidebar-bg"></div>

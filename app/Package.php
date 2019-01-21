@@ -13,11 +13,12 @@ class Package extends Model
         'price_d',
         'price_coin',
         'image',
+        'type_id',
         'active_status',
     ];
 
 
-    public function products(){
-        return $this->belongsToMany('App\Product');
+    public function type(){
+        return $this->belongsToMany('App\PackageType','type_id');
     }
 }

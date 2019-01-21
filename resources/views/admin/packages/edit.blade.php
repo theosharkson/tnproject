@@ -182,7 +182,7 @@
                         <div class="col-md-12">
                             <button type="submit" class="btn btn-primary pull-right">
                                 <i class="fa fa-plus"></i>
-                                Add Package
+                                Update Package
                             </button>
                         </div>
                     </div> 
