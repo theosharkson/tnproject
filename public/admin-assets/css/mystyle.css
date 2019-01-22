@@ -30,6 +30,12 @@
     text-align: center;
 }
 
+.center-img{
+    display:block;
+    margin:auto;
+}
+
+
 .back2site{
     z-index: 99999;
     position: absolute;

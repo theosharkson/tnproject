@@ -25,8 +25,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('user-types', UserTypeController::class);
 Route::resource('staffs', StaffController::class);
-Route::resource('products', ProductController::class);
-Route::resource('packages', PackageController::class);
+Route::resource('package-types', PackageTypeController::class);
+// Route::resource('packages', PackageController::class);
+Route::get('package-types/{packageType}/add-packages', 'PackageController@create')->name('add-packages');
+Route::post('package-types/{packageType}/add-packages', 'PackageController@store')->name('packages.store');
+Route::get('package-types/{packageType}/package/{package}/edit', 'PackageController@edit')->name('packages.edit');
+Route::put('package-types/{packageType}/package/{package}/update', 'PackageController@update')->name('packages.update');
+Route::delete('package/{package}/{packageType}', 'PackageController@destroy')->name('packages.destroy');
 Route::resource('features', FeatureController::class);
 
 /**
@@ -51,6 +56,11 @@ Route::get('/uploads/package_images/{image}', function () { })->name('packages.i
 Route::get('/uploads/package_images_large/{image}', function () { })->name('packages.images.large');
 Route::get('/uploads/package_images_thumb/{image}', function () { })->name('packages.images.thumb');
 Route::get('/uploads/package_images_raw/{image}', function () { })->name('packages.images.raw');
+
+Route::get('/uploads/package_type_images/{image}', function () { })->name('package-type.images.full');
+Route::get('/uploads/package_type_images_large/{image}', function () { })->name('package-type.images.large');
+Route::get('/uploads/package_type_images_thumb/{image}', function () { })->name('package-type.images.thumb');
+Route::get('/uploads/package_type_images_raw/{image}', function () { })->name('package-type.images.raw');
 
 Route::get('/uploads/user_images/{image}', function () { })->name('users.images.full');
 Route::get('/uploads/user_images_large/{image}', function () { })->name('users.images.large');

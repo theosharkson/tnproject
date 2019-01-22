@@ -24,7 +24,6 @@ class CreateExtrasTable extends Migration
             $table->string('description')->nullable();
             $table->integer('active_status')->default('1');
             $table->timestamps();
-            $table->timestamps();
         });
     }
 

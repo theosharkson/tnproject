@@ -10,6 +10,7 @@ class PackageType extends Model
         'name',
         'description',
         'image',
+        'category',
         'active_status',
     ];
 }

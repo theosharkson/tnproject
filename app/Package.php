@@ -21,4 +21,10 @@ class Package extends Model
     public function type(){
         return $this->belongsToMany('App\PackageType','type_id');
     }
+
+    public function items(){
+        return $this->hasMany('App\PackageItem','type_id');
+    }
+
+
 }

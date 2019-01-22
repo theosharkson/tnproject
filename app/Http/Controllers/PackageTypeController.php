@@ -24,7 +24,7 @@ class PackageTypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.package_types.create');
     }
 
     /**
@@ -35,7 +35,28 @@ class PackageTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'category' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:10240',
+        ]);
+
+        $params = $request->all();
+        // dd($params);
+
+        //Add The Image
+        if(!empty($request->file('image'))){
+            $params['image'] = save_image( $request->file('image'), 'package_type');
+        }
+
+        try {
+            $package_type = PackageType::create($params);
+        } catch (Exception $e) {
+            return redirect()->back()->with('error_message','Sorry, Unable to Add Package Type.');
+        }
+
+
+        return redirect()->back()->with('success_message','Package Type saved successfully!!');
     }
 
     /**
@@ -57,7 +78,7 @@ class PackageTypeController extends Controller
      */
     public function edit(PackageType $packageType)
     {
-        //
+        return view('admin.package_types.edit', compact('packageType'));
     }
 
     /**
@@ -69,7 +90,28 @@ class PackageTypeController extends Controller
      */
     public function update(Request $request, PackageType $packageType)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'category' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg|max:10240',
+        ]);
+
+        $params = $request->all();
+
+        //Add The Image
+        if(!empty($request->file('image'))){
+            $params['image'] = save_image( $request->file('image'), 'package_type');
+        }
+
+        try {
+            $packageType->update($params);
+        } catch (Exception $e) {
+            return redirect()->back()->with('error_message','Sorry, Unable to Update Package Type.');
+        }  
+
+
+
+        return redirect()->back()->with('success_message','Package Type Updated successfully!!');
     }
 
     /**
@@ -80,6 +122,12 @@ class PackageTypeController extends Controller
      */
     public function destroy(PackageType $packageType)
     {
-        //
+        try {
+            $packageType->delete();
+        } catch (Exception $e) {
+            return redirect()->back()->with('error_message','Sorry, Unable to Delete Package Type.');
+        }   
+
+        return redirect()->route('package-types.create')->with('success_message','Package Type deleted successfully!!');
     }
 }

@@ -28,7 +28,16 @@
                 </a>
             </li>
 
-            
+            <li class="{{in_array(Request::route()->getName(), [
+                              'package-types.create',
+                              'package-types.edit',
+
+                              ]) ? 'active' : ''}}">
+                <a href="{{route('package-types.create')}}">
+                    <i class="fa fa-gift"></i> 
+                    <span>Package Types</span>
+                </a>
+            </li>
 
             
 
