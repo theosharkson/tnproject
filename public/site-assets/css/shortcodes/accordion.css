@@ -14,7 +14,7 @@ NOTE: This file contains Accordion CSS.
 .accordion .acd-group > .acd-heading > span { margin-right: 15px; }
 .accordion .acd-heading { font-weight: 500; position: relative; padding: 20px 0; color: #353535; line-height: normal; cursor: pointer; background-color: transparent; margin-bottom: 0px; display: block; font-family: 'Montserrat', sans-serif; text-transform: uppercase; border-radius: 90px;  }
 .acd-des { padding: 0 20px 20px 0; }
-.accordion .acd-group.acd-active .acd-heading, .accordion .acd-group .acd-heading:hover { color: #84ba3f; }
+.accordion .acd-group.acd-active .acd-heading, .accordion .acd-group .acd-heading:hover { color: #da9803; }
 .accordion .acd-group.acd-active .acd-heading:before { content: "\f107"; }
 .accordion .acd-group.acd-active .acd-heading span { color: #fff; }
 
@@ -30,25 +30,25 @@ NOTE: This file contains Accordion CSS.
 .accordion.gray .acd-heading { background-color: #f7f7f7; }
 .accordion.gray .acd-heading  { margin-bottom: 20px; padding: 20px 30px; }
 .accordion.gray .acd-des { padding: 0 30px 20px; }
-.accordion.gray .acd-group.acd-active .acd-heading, .accordion.gray .acd-group .acd-heading:hover { color: #fff; background: #84ba3f; }
+.accordion.gray .acd-group.acd-active .acd-heading, .accordion.gray .acd-group .acd-heading:hover { color: #fff; background: #da9803; }
 
 /*shadow*/
 .accordion.shadow .acd-heading { box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1); background: #ffffff; }
 .accordion.shadow .acd-heading  { margin-bottom: 20px; padding: 20px 30px; }
 .accordion.shadow .acd-des  { padding: 0 30px 20px; }
-.accordion.shadow .acd-group.acd-active .acd-heading, .accordion.shadow .acd-group .acd-heading:hover { color: #fff; background: #84ba3f; }
+.accordion.shadow .acd-group.acd-active .acd-heading, .accordion.shadow .acd-group .acd-heading:hover { color: #fff; background: #da9803; }
 
 
 /*border*/
 .accordion.border .acd-heading { background: transparent; border:1px solid #eeeeee; box-shadow: none; }
 .accordion.border .acd-heading  { margin-bottom: 20px; padding: 20px 30px; }
 .accordion.border .acd-des  { padding: 0 30px 20px; }
-.accordion.border .acd-group.acd-active .acd-heading, .accordion.border .acd-group .acd-heading:hover { color: #fff; background: #84ba3f; }
+.accordion.border .acd-group.acd-active .acd-heading, .accordion.border .acd-group .acd-heading:hover { color: #fff; background: #da9803; }
 
 /* Accordion Simple */
 .accordion.animated .acd-group .acd-heading { box-shadow: none; border:none; font-size: 18px; margin-bottom: 0; color:#363636; text-transform: inherit; font-weight: 700; padding: 20px 0px 0; }
-.accordion.animated .acd-group.acd-active .acd-heading { font-size: 28px; color: #84ba3f; margin-bottom: 20px; background: none !important;}
-.accordion.animated .acd-group .acd-heading:hover{background: none !important; color: #84ba3f;}
+.accordion.animated .acd-group.acd-active .acd-heading { font-size: 28px; color: #da9803; margin-bottom: 20px; background: none !important;}
+.accordion.animated .acd-group .acd-heading:hover{background: none !important; color: #da9803;}
 .accordion.animated .acd-group .acd-heading::before { display: none; }
 .accordion.animated .acd-group .acd-des { padding: 0 30px 20px; }
 

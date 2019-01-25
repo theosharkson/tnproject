@@ -17,9 +17,9 @@ class CreateExtrasTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('image')->nullable();
-            $table->double('price_per_extra')->nullable();
-            $table->double('price_per_extra_d')->nullable();
-            $table->double('price_per_extra_coin')->nullable();
+            $table->double('price')->nullable();
+            $table->double('price_d')->nullable();
+            $table->double('price_coin')->nullable();
             $table->string('type')->nullable();
             $table->string('description')->nullable();
             $table->integer('active_status')->default('1');

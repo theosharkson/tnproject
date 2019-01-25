@@ -9,14 +9,16 @@
         <!-- menu logo -->
         <ul class="menu-logo">
           <li>
-            <a href="index-01.html"><img id="logo_img" src="http://teamnhyira.com/wp-content/uploads/2018/01/MovieLOGO.png" alt="logo"> </a>
+            <a href="{{route('site')}}">
+              <img id="logo_img" src="{{asset('site-assets/images/logo/logo.png')}}" alt="logo"> 
+            </a>
           </li>
         </ul>
         <!-- menu links -->
         <div class="menu-bar">
           <ul class="menu-links">
             <li class="">
-              <a href="javascript:void(0)"> 
+              <a href="{{route('site')}}"> 
                 Home 
                 {{-- <i class="fa fa-angle-down fa-indicator"></i> --}}
               </a>
@@ -56,15 +58,15 @@
               </a>
               <div class="cart">
                 <div class="cart-title">
-                 <h6 class="uppercase mb-0">Shopping cart</h6>
+                 <h6 class="uppercase mb-0">Pending Orders</h6>
                </div>
 
                <div class="cart-item">
                 <div class="cart-image">
-                  <img class="img-responsive" src="site-assets/images/shop/01.jpg" alt="">
+                  <img class="img-responsive" src="{{asset('site-assets/images/shop/01.jpg')}}" alt="">
                 </div>
                 <div class="cart-name clearfix">
-                  <a href="#">Product name <strong>x2</strong> </a>
+                  <a href="#">Package Name <strong>x2</strong> </a>
                   <div class="cart-price">
                     <del>$24.99</del> <ins>$12.49</ins>
                   </div>

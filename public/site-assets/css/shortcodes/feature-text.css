@@ -18,7 +18,7 @@ NOTE: This file contains Features box CSS.
 .feature-text.round .feature-icon span, .feature-text.round .feature-icon i { width: 70px; height: 70px; line-height: 70px;  display: inline-block; font-size: 26px; border-radius: 50%; padding-left: 0px; }
 .feature-text.border .feature-icon span, .feature-text.border .feature-icon i { color: #323232; background: transparent; border:2px solid #323232; padding-left: 0px; }
 .feature-text.gray-icon .feature-icon span, .feature-text.gray-icon .feature-icon i {  color: #323232; background: #f6f7f8; padding-left: 0px; }
-.feature-text.theme-icon .feature-icon span, .feature-text.theme-icon .feature-icon i { color: #ffffff; background: #84ba3f; padding-left: 0px; }
+.feature-text.theme-icon .feature-icon span, .feature-text.theme-icon .feature-icon i { color: #ffffff; background: #da9803; padding-left: 0px; }
 .feature-text.shadow .feature-icon span, .feature-text.shadow .feature-icon i {  color: #323232; background: #ffffff; box-shadow: 0 4px 20px rgba(0,0,0,0.09); padding-left: 0px; }
 .feature-text.square .feature-icon span, .feature-text.square .feature-icon i { width: 70px; height: 70px; line-height: 70px;  display: inline-block; font-size: 26px; padding-left: 0px;}
 
@@ -45,21 +45,21 @@ NOTE: This file contains Features box CSS.
 
 /*button*/
 .feature-text .button { margin-top: 10px; }
-.feature-text.round:hover .feature-icon i, .feature-text.round:hover .feature-icon span { background: #84ba3f; color: #ffffff; border-color: #84ba3f; }
+.feature-text.round:hover .feature-icon i, .feature-text.round:hover .feature-icon span { background: #da9803; color: #ffffff; border-color: #da9803; }
 .feature-text.theme-icon:hover .feature-icon span, .feature-text.theme-icon:hover .feature-icon i { background: #323232; color: #ffffff; }
-.feature-text.square:hover .feature-icon i, .feature-text.square:hover .feature-icon span { background: #84ba3f; color: #ffffff; border-color: #84ba3f; }
+.feature-text.square:hover .feature-icon i, .feature-text.square:hover .feature-icon span { background: #da9803; color: #ffffff; border-color: #da9803; }
 .feature-text.square.theme-icon:hover .feature-icon span, .feature-text.square.theme-icon:hover .feature-icon i { background: #323232; color: #ffffff; }
 
  /*feature-box*/
  .awesome-features .img-side img { position: absolute; top: -30px; left: 0; }
 .feature-box {  border:1px solid #e6e6e6; padding: 1px; position: relative; -webkit-transition: all 0.3s ease-out 0s; -moz-transition: all 0.3s ease-out 0s; -ms-transition: all 0.3s ease-out 0s; -o-transition: all 0.3s ease-out 0s; transition: all 0.3s ease-out 0s; z-index: 1; }
 .feature-box-content { position: relative; padding: 30px; padding-bottom: 0; z-index: 9; }
-.feature-box i { width: 100%; font-size: 30px; color: #84ba3f; padding: 0 10px;  -webkit-transition: all 0.3s ease-out 0s; -moz-transition: all 0.3s ease-out 0s; -ms-transition: all 0.3s ease-out 0s; -o-transition: all 0.3s ease-out 0s; transition: all 0.3s ease-out 0s;}
+.feature-box i { width: 100%; font-size: 30px; color: #da9803; padding: 0 10px;  -webkit-transition: all 0.3s ease-out 0s; -moz-transition: all 0.3s ease-out 0s; -ms-transition: all 0.3s ease-out 0s; -o-transition: all 0.3s ease-out 0s; transition: all 0.3s ease-out 0s;}
 .feature-box h4 { text-transform: none; padding:30px 0 0px; font-weight: 500; transition: all 0.3s ease-out 0s; }
 .feature-box p {   transition: all 0.3s ease-out 0s; }
 .feature-box a { font-size: 16px; font-weight: 300; color: #808080; margin: 25px 0 10px; padding: 0 30px; display: block; position: relative; z-index: 3; }
 .feature-box .feature-box-img { bottom: 0; left: 0; opacity: 0; position: absolute; right: 0; top: 0; z-index: 0; -webkit-transition: all 0.3s ease-out 0s; -moz-transition: all 0.3s ease-out 0s; -ms-transition: all 0.3s ease-out 0s; -o-transition: all 0.3s ease-out 0s; transition: all 0.3s ease-out 0s; z-index: 0; background-size: cover; background-position: center center; }
-.feature-box .border { position: absolute; background: #84ba3f; height: 0px; bottom: 0; left: 0; z-index:2; width: 100%; -webkit-transition: all 0.3s ease-out 0s; -moz-transition: all 0.3s ease-out 0s; -ms-transition: all 0.3s ease-out 0s; -o-transition: all 0.3s ease-out 0s; transition: all 0.3s ease-out 0s;  }
+.feature-box .border { position: absolute; background: #da9803; height: 0px; bottom: 0; left: 0; z-index:2; width: 100%; -webkit-transition: all 0.3s ease-out 0s; -moz-transition: all 0.3s ease-out 0s; -ms-transition: all 0.3s ease-out 0s; -o-transition: all 0.3s ease-out 0s; transition: all 0.3s ease-out 0s;  }
 .feature-box:hover .feature-box-img, .feature-box.active .feature-box-img { opacity: 1; }
 .feature-box:hover .border, .feature-box.active .border { height: 45px; }
 .feature-box:hover i, .feature-box.active i { background: rgba(255, 255, 255, 0); color: #fff; }

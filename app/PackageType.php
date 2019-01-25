@@ -13,4 +13,10 @@ class PackageType extends Model
         'category',
         'active_status',
     ];
+
+
+    public function packages(){
+        return $this->hasMany('App\Package','type_id');
+    }
+
 }

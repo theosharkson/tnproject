@@ -173,7 +173,7 @@ var $window = $(window),
 POTENZA.raindrops = function () {
   if ($('.raindrops').exists()) {
      loadScript(plugin_path + 'raindrops/raindrops.js', function() {
-         $('#raindrops').raindrops({color:'#84ba3f',
+         $('#raindrops').raindrops({color:'#da9803',
          canvasHeight:50});
      });
     }
@@ -822,7 +822,7 @@ var _arr  = {};
         POTENZA.countdownTimer(),
         POTENZA.goToTop(),
         POTENZA.mediav(),
-        POTENZA.googlemapopen(),
+        // POTENZA.googlemapopen(),
         POTENZA.mobileslider(),
         POTENZA.onepagenav(),
         POTENZA.mediaPopups(),
@@ -830,7 +830,7 @@ var _arr  = {};
         POTENZA.datetimepick(),
         POTENZA.datatables(),
         POTENZA.wowanimation(),
-        POTENZA.googlemaps(),
+        // POTENZA.googlemaps(),
         POTENZA.fancyselect(),
         POTENZA.searchbox(),
         POTENZA.cartbox(),

@@ -18,6 +18,37 @@ class PackageController extends Controller
         return view('site.packages.list');
     }
 
+    public function videoPackages()
+    {
+        $type = getVideoType();
+        return view('site.package_types.list', compact('type'));
+    }
+
+    public function photoPackages()
+    {
+        $type = getPhotoType();
+        return view('site.package_types.list', compact('type'));
+    }
+
+
+
+    public function videoPackagesList(PackageType $packageType)
+    {
+        return view('site.packages.list', compact('packageType'));
+    }
+
+
+
+    public function photoPackagesList(PackageType $packageType)
+    {
+        return view('site.packages.list', compact('packageType'));
+    }
+
+
+
+
+
+
     /**
      * Show the form for creating a new resource.
      *

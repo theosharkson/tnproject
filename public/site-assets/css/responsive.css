@@ -540,7 +540,7 @@ header.one-page { position: relative; background: #323232; }
 .but span {position: absolute; right:15px; top: 20px;  font-size: 24px;color: #fff; }
 .but span { -webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -o-transform: rotate(0deg); -ms-transform: rotate(0deg); transform: rotate(0deg); transition:all 0.5s ease-in-out; -webkit-transition:all 0.3s ease-in-out; -o-transition:all 0.3s ease-in-out; -ms-transition:all 0.3s ease-in-out; -moz-transition:all 0.3s ease-in-out; }
 .but.active span { -webkit-transform: rotate(90deg); -moz-transform: rotate(90deg); -o-transform: rotate(90deg); -ms-transform: rotate(90deg); transform: rotate(90deg); }
-.menu-responsive b {  color: #84ba3f; font-size: 18px; text-transform: uppercase; }
+.menu-responsive b {  color: #da9803; font-size: 18px; text-transform: uppercase; }
 .menu-responsive  { height:60px;  position: fixed; background: #000000; z-index: 9999; width: 100%; padding: 14px 15px; display: block; }
 .vertical-menu .navbar-toggle { display: none; }
 .vertical-menu .navbar-collapse.collapse { display: block !important;  background: transparent; }

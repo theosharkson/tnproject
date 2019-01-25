@@ -22,12 +22,12 @@ ul.page-breadcrumb { padding-top: 30px; }
 ul.page-breadcrumb li { color: #fff; display: inline-block; list-style: none; }
 ul.page-breadcrumb li i { font-size: 14px; padding: 0 7px;} 
 ul.page-breadcrumb li a { color: #fff; font-size: 14px; text-transform: capitalize; }
-ul.page-breadcrumb li a:hover {  color: #84ba3f; }
+ul.page-breadcrumb li a:hover {  color: #da9803; }
 .page-title.gray-bg h1, .page-title.gray-bg p { color: #323232; }
 .page-title.gray-bg ul.page-breadcrumb li a { color: #323232; }
-.page-title.gray-bg ul.page-breadcrumb li a:hover { color: #84ba3f; }
+.page-title.gray-bg ul.page-breadcrumb li a:hover { color: #da9803; }
 .page-title.gray-bg ul.page-breadcrumb li { color: #323232; }
-.page-title.gray-bg ul.page-breadcrumb li span { color: #84ba3f; }
+.page-title.gray-bg ul.page-breadcrumb li span { color: #da9803; }
 
 /*center*/
 .page-title.center { text-align: center; }
@@ -47,18 +47,18 @@ ul.page-breadcrumb li a:hover {  color: #84ba3f; }
 /*gray-bg */
 .page-title.pattern h1, .page-title.pattern p { color: #323232; }
 .page-title.pattern ul.page-breadcrumb li a { color: #323232; }
-.page-title.pattern ul.page-breadcrumb li a:hover { color: #84ba3f; }
+.page-title.pattern ul.page-breadcrumb li a:hover { color: #da9803; }
 .page-title.pattern ul.page-breadcrumb li { color: #323232; }
-.page-title.pattern ul.page-breadcrumb li span { color: #84ba3f; }
+.page-title.pattern ul.page-breadcrumb li span { color: #da9803; }
 
 /*light-overlay*/
 .page-title.light-overlay { position: relative; padding-top: 360px; }
 .page-title.light-overlay:before { position: absolute; width: 100%; height: 100%; bottom: 0; left: 0; right: 0; content: ""; background: url(../../images/white-overlay.png);  background-repeat: repeat-x; background-position: bottom; } 
 .page-title.light-overlay h1, .page-title.light-overlay p { color: #323232; }
 .page-title.light-overlay ul.page-breadcrumb li a { color: #323232; }
-.page-title.light-overlay ul.page-breadcrumb li a:hover { color: #84ba3f; }
+.page-title.light-overlay ul.page-breadcrumb li a:hover { color: #da9803; }
 .page-title.light-overlay ul.page-breadcrumb li { color: #323232; }
-.page-title.light-overlay ul.page-breadcrumb li span { color: #84ba3f; }
+.page-title.light-overlay ul.page-breadcrumb li span { color: #da9803; }
 
 
 /*dark-overlay*/

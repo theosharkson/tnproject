@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('site');
-});
+})->name('site');
 
 Route::get('/admin', function () {
     return view('admin');
@@ -32,7 +32,15 @@ Route::post('package-types/{packageType}/add-packages', 'PackageController@store
 Route::get('package-types/{packageType}/package/{package}/edit', 'PackageController@edit')->name('packages.edit');
 Route::put('package-types/{packageType}/package/{package}/update', 'PackageController@update')->name('packages.update');
 Route::delete('package/{package}/{packageType}', 'PackageController@destroy')->name('packages.destroy');
+
 Route::resource('features', FeatureController::class);
+Route::resource('extras', ExtraController::class);
+
+
+
+
+
+
 
 /**
  *
@@ -41,7 +49,11 @@ Route::resource('features', FeatureController::class);
  */
 
 Route::get('/our-packages', 'PackageController@index')->name('site.packages');
+Route::get('/video-packages', 'PackageController@videoPackages')->name('site.video-packages');
+Route::get('/photo-packages', 'PackageController@photoPackages')->name('site.photo-packages');
 
+Route::get('video-packages/{packageType}', 'PackageController@videoPackagesList')->name('site.video-packages-list');
+Route::get('photo-packages/{packageType}', 'PackageController@photoPackagesList')->name('site.photo-packages-list');
 
 
 
@@ -66,6 +78,11 @@ Route::get('/uploads/user_images/{image}', function () { })->name('users.images.
 Route::get('/uploads/user_images_large/{image}', function () { })->name('users.images.large');
 Route::get('/uploads/user_images_thumb/{image}', function () { })->name('users.images.thumb');
 Route::get('/uploads/user_images_raw/{image}', function () { })->name('users.images.raw');
+
+Route::get('/uploads/extra_images/{image}', function () { })->name('extras.images.full');
+Route::get('/uploads/extra_images_large/{image}', function () { })->name('extras.images.large');
+Route::get('/uploads/extra_images_thumb/{image}', function () { })->name('extras.images.thumb');
+Route::get('/uploads/extra_images_raw/{image}', function () { })->name('extras.images.raw');
 
 
 

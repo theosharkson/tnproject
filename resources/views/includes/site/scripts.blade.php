@@ -6,7 +6,11 @@
 <script type="text/javascript" src="{{asset('site-assets/js/plugins-jquery.js')}}"></script>
 
 <!-- plugin_path -->
-<script type="text/javascript">var plugin_path = 'site-assets/js/';</script>
+<script type="text/javascript">
+var plugin_path = '{{url('site-assets/js')}}/';
+
+console.log(plugin_path);
+</script>
  
 
 <!-- REVOLUTION JS FILES -->
@@ -26,5 +30,5 @@
 <!-- revolution custom --> 
 <script type="text/javascript" src="{{asset('site-assets/revolution/js/revolution-custom.js')}}"></script> 
 
-<!-- custom -->
+
 <script type="text/javascript" src="{{asset('site-assets/js/custom.js')}}"></script>

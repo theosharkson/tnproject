@@ -8,16 +8,16 @@ NOTE: This file contains Bootstrap Typography CSS.
 
 .pager { margin: 0; }
 .affix { left: 0; right: 0; }
-.btn-primary { background-color: #84ba3f; border-color: #84ba3f; }
+.btn-primary { background-color: #da9803; border-color: #da9803; }
 .btn-primary:hover { background-color: #323232; border-color: #323232; }
 .btn-primary.focus, .btn-primary:focus { background-color: #323232; border-color: #323232; }
-.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover { background-color: #84ba3f; }
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover { background-color: #da9803; }
 select.input-sm { height: 50px; }
-.nice-select:active, .nice-select.open, .nice-select:focus { border-color:#84ba3f !important; }
-.list-group-item.active>.badge, .nav-pills>.active>a>.badge, .btn-primary .badge { color: #84ba3f;  }
-.nav .open>a, .nav .open>a:focus, .nav .open>a:hover { border-color: #84ba3f; }
-.btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover { background-color: #84ba3f; border-color: #84ba3f }
-.bootstrap-datetimepicker-widget table td.active, .bootstrap-datetimepicker-widget table td.active:hover { background: #84ba3f; }
+.nice-select:active, .nice-select.open, .nice-select:focus { border-color:#da9803 !important; }
+.list-group-item.active>.badge, .nav-pills>.active>a>.badge, .btn-primary .badge { color: #da9803;  }
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover { border-color: #da9803; }
+.btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover { background-color: #da9803; border-color: #da9803 }
+.bootstrap-datetimepicker-widget table td.active, .bootstrap-datetimepicker-widget table td.active:hover { background: #da9803; }
 .input-group-addon:last-child { border: 0; }
 .input-group-addon { border-left:1px solid #e0e0e0 !important; padding: 6px 26px 6px 22px; background: #f6f7f8; border-radius: 25px; }
 .datetimepicker .form-control:focus { box-shadow: none; background-color: #f6f7f8; }
@@ -72,19 +72,19 @@ select.input-sm { height: 50px; }
 	Typography
 *************************/
 .typography del, s, u { font-size: 14px; }
-.typography .mark, mark { background: #84ba3f; color: #fff;  }
-del, mark { background: #84ba3f; color: #ffffff; padding: 0 5px; margin-right: 3px; }
+.typography .mark, mark { background: #da9803; color: #fff;  }
+del, mark { background: #da9803; color: #ffffff; padding: 0 5px; margin-right: 3px; }
 
 /*************************
 	data table
 *************************/
 .table { margin-bottom: 0; }
 .table-bordered tbody tr td, .table-bordered thead tr th { border-color: #eee;  font-size: 14px; padding: 12px 20px; }
-.table-1 thead { background: #84ba3f; color: #fff; text-align: center; }
+.table-1 thead { background: #da9803; color: #fff; text-align: center; }
 .table-1 thead tr th { border: medium none;   font-weight: normal;  text-align: center;}
 .table-1 tbody tr td { color: #7e8890; font-size: 14px; padding: 12px 0; text-align: center; }
-.table-2.table thead { background: transparent; color: #84ba3f; font-weight: 600; text-align: center; }
-.table-2.table thead tr th { border: 1px solid #84ba3f !important; text-align: center; }
+.table-2.table thead { background: transparent; color: #da9803; font-weight: 600; text-align: center; }
+.table-2.table thead tr th { border: 1px solid #da9803 !important; text-align: center; }
 .table-3.table thead { background: #dfdfdf; color: #323232; font-weight: 600; text-align: center; }
 .table-3.table thead tr th { border:none; text-align: center; }
 
@@ -126,9 +126,9 @@ del, mark { background: #84ba3f; color: #ffffff; padding: 0 5px; margin-right: 3
  /*************************
         lists panels 
 *************************/ 
-.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover { background-color: #84ba3f; border-color: #84ba3f;  }
-.panel-primary { border-color: #84ba3f;  }
-.panel-primary>.panel-heading  {  background-color: #84ba3f; border-color: #84ba3f; }
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover { background-color: #da9803; border-color: #da9803;  }
+.panel-primary { border-color: #da9803;  }
+.panel-primary>.panel-heading  {  background-color: #da9803; border-color: #da9803; }
 
  /*************************
         lists panels 

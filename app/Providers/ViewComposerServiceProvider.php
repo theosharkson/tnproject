@@ -29,8 +29,19 @@ class ViewComposerServiceProvider extends ServiceProvider
         View::composer(['admin.packages.list'],'App\ViewComposers\AdminComposers\PackagesComposer');
         View::composer(['admin.package_types.list'],'App\ViewComposers\AdminComposers\PackageTypesComposer');
 
+        View::composer(['admin.extras.list'],'App\ViewComposers\AdminComposers\ExtrasComposer');
+
+
+
+
+        /* SITE COMPOSERS */
 
         View::composer(['site.packages.list'],'App\ViewComposers\SiteComposers\PackagesComposer');
+        View::composer([
+            'site.package_types.list',
+            'site.package_types.video',
+            'site.package_types.photo',
+        ],'App\ViewComposers\SiteComposers\PackageTypesComposer');
 
     }
 
