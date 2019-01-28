@@ -159,7 +159,7 @@
            <div class="shop-split-content">
              <span>Explore our Special</span>
              <h1 class="mt-10">TEAM NHYIRA VIDEO PACKAGES </h1>
-             <p>Feel free to explore our beautifully crafted video packages to suite your every need. Do you know our packages are customizable!!!??. </p>
+             <p>Feel free to explore our beautifully crafted video packages to suit your every need. Do you know our packages are customizable!!!??. </p>
              
              <a class="button black" href="{{route('site.video-packages')}}"> Explore Packages</a>  
            </div>
@@ -179,7 +179,7 @@
            <div class="shop-split-content">
              <span>Explore our Special</span>
              <h1 class="mt-10">TEAM NHYIRA PHOTOGRAPHY PACKAGES </h1>
-             <p>Explore our availabel photography packages and trst me, you are surely going to find what you need. Also very customizable to suite your extra needs.</p>
+             <p>Explore our available photography packages and trust me, you are surely going to find what you need. Also very customizable to suite your extra needs.</p>
              
              <a class="button black" href="{{route('site.photo-packages')}}"> Explore Packages</a>  
            </div>

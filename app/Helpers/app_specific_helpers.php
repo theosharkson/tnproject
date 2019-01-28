@@ -26,6 +26,24 @@ function getExtraTypes(){
 }
 
 
+function getPortfolioTypes(){
+    return [
+        "photo" => "Photo",
+        "video" => "Video",
+    ];
+}
+
+function getPortfolioItemTypes(){
+    return [
+        "photo" => "Photo",
+        "video" => "Video",
+        "video_link" => "Video Link",
+    ];
+}
+
+
+
+
 
 
  ?>

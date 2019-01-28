@@ -51,7 +51,18 @@
                     <span>Extras</span>
                 </a>
             </li>
+            <li class="{{in_array(Request::route()->getName(), [
+                              'portfolios.create',
+                              'portfolios.edit',
+                              'add-portfolio-item',
+                              'portfolio-item.edit',
 
+                              ]) ? 'active' : ''}}">
+                <a href="{{route('portfolios.create')}}">
+                    <i class="fa fa-camera-retro"></i> 
+                    <span>Portfolios</span>
+                </a>
+            </li>
             
 
 

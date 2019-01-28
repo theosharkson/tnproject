@@ -29,6 +29,10 @@ class ViewComposerServiceProvider extends ServiceProvider
         View::composer(['admin.packages.list'],'App\ViewComposers\AdminComposers\PackagesComposer');
         View::composer(['admin.package_types.list'],'App\ViewComposers\AdminComposers\PackageTypesComposer');
 
+        View::composer(['admin.portfolio.list'],'App\ViewComposers\AdminComposers\PortfoliosComposer');
+        View::composer(['admin.portfolio_items.list'],'App\ViewComposers\AdminComposers\PortfolioItemsComposer');
+
+
         View::composer(['admin.extras.list'],'App\ViewComposers\AdminComposers\ExtrasComposer');
 
 

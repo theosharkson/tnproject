@@ -31,6 +31,8 @@
 <!-- Style -->
 <link rel="stylesheet" type="text/css" href="{{asset('site-assets/css/style.css')}}" />
 
+<link href="{{asset('site-assets/css/shop.css')}}" rel="stylesheet" type="text/css" /> 
+
 <!-- Responsive -->
 <link rel="stylesheet" type="text/css" href="{{asset('site-assets/css/responsive.css')}}" /> 
  

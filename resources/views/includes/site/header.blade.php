@@ -5,7 +5,7 @@
         <div class="topbar-call text-left">
           <ul>
             <li><i class="fa fa-envelope-o theme-color"></i> info@teamnhyira.com</li>
-             <li><i class="fa fa-phone"></i> <a href="tel:+233543414719"> <span>+(233) 543-414-719 </span> </a> </li>
+             <li><i class="fa fa-phone"></i> <a href="tel:+233501360622"> <span>+(233) 50-136-0622 </span> </a> </li>
           </ul>
         </div>
       </div>

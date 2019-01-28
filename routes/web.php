@@ -37,6 +37,14 @@ Route::resource('features', FeatureController::class);
 Route::resource('extras', ExtraController::class);
 
 
+Route::resource('portfolios', PortfolioController::class);
+Route::get('portfolios/{portfolio}/add-items', 'PortfolioItemController@create')->name('add-portfolio-items');
+Route::post('portfolios/{portfolio}/add-items', 'PortfolioItemController@store')->name('portfolio-items.store');
+Route::get('portfolios/{portfolio}/package/{package}/edit', 'PortfolioItemController@edit')->name('portfolio-items.edit');
+Route::put('portfolios/{portfolio}/package/{package}/update', 'PortfolioItemController@update')->name('portfolio-items.update');
+Route::delete('portfolio-item/{portfolioItem}/{portfolio}', 'PortfolioItemController@destroy')->name('portfolio-items.destroy');
+
+
 
 
 
@@ -55,9 +63,13 @@ Route::get('/photo-packages', 'PackageController@photoPackages')->name('site.pho
 Route::get('video-packages/{packageType}', 'PackageController@videoPackagesList')->name('site.video-packages-list');
 Route::get('photo-packages/{packageType}', 'PackageController@photoPackagesList')->name('site.photo-packages-list');
 
+Route::get('/our-portfolio/select-type', 'PortfolioController@selectType')->name('site.portfolio.select-type');
 
 
 //==========================================================
+
+
+
 
 Route::get('/uploads/product_images/{image}', function () { })->name('products.images.full');
 Route::get('/uploads/product_images_large/{image}', function () { })->name('products.images.large');
@@ -83,6 +95,19 @@ Route::get('/uploads/extra_images/{image}', function () { })->name('extras.image
 Route::get('/uploads/extra_images_large/{image}', function () { })->name('extras.images.large');
 Route::get('/uploads/extra_images_thumb/{image}', function () { })->name('extras.images.thumb');
 Route::get('/uploads/extra_images_raw/{image}', function () { })->name('extras.images.raw');
+
+
+Route::get('/uploads/portfolio_images/{image}', function () { })->name('portfolios.images.full');
+Route::get('/uploads/portfolio_images_large/{image}', function () { })->name('portfolios.images.large');
+Route::get('/uploads/portfolio_images_thumb/{image}', function () { })->name('portfolios.images.thumb');
+Route::get('/uploads/portfolio_images_raw/{image}', function () { })->name('portfolios.images.raw');
+
+
+
+Route::get('/uploads/portfolio_item_images/{image}', function () { })->name('portfolio-items.images.full');
+Route::get('/uploads/portfolio_item_images_large/{image}', function () { })->name('portfolio-items.images.large');
+Route::get('/uploads/portfolio_item_images_thumb/{image}', function () { })->name('portfolio-items.images.thumb');
+Route::get('/uploads/portfolio_item_images_raw/{image}', function () { })->name('portfolio-items.images.raw');
 
 
 
