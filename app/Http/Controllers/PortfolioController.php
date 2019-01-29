@@ -22,6 +22,27 @@ class PortfolioController extends Controller
         return view('site.portfolio.select_type');
     }
 
+    public function photoAlbums()
+    {
+        $photo_albums = Portfolio::where('type', 'photo')->get();
+        // dd($photo_albums->toArray());
+        return view('site.portfolio.photo_albums', compact('photo_albums'));
+    }
+
+    public function photoAlbumsShow(Portfolio $portfolio)
+    {
+        return view('site.portfolio.photo_albums_show', compact('portfolio'));
+    }
+
+
+
+    public function videoAlbums()
+    {
+        return view('site.portfolio.select_type');
+    }
+
+
+
 
 
     /**

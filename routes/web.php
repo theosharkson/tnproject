@@ -55,6 +55,9 @@ Route::delete('portfolio-item/{portfolioItem}/{portfolio}', 'PortfolioItemContro
  * Site Routes
  *
  */
+Route::get('/about', function () {
+    return view('about');
+})->name('site.about');
 
 Route::get('/our-packages', 'PackageController@index')->name('site.packages');
 Route::get('/video-packages', 'PackageController@videoPackages')->name('site.video-packages');
@@ -63,7 +66,10 @@ Route::get('/photo-packages', 'PackageController@photoPackages')->name('site.pho
 Route::get('video-packages/{packageType}', 'PackageController@videoPackagesList')->name('site.video-packages-list');
 Route::get('photo-packages/{packageType}', 'PackageController@photoPackagesList')->name('site.photo-packages-list');
 
-Route::get('/our-portfolio/select-type', 'PortfolioController@selectType')->name('site.portfolio.select-type');
+Route::get('/portfolio', 'PortfolioController@selectType')->name('site.portfolio.select-type');
+Route::get('/photo-albums', 'PortfolioController@photoAlbums')->name('site.photo-albums');
+Route::get('/photo-albums/{portfolio}', 'PortfolioController@photoAlbumsShow')->name('site.photo-albums.show');
+Route::get('/video-albums', 'PortfolioController@videoAlbums')->name('site.video-albums');
 
 
 //==========================================================

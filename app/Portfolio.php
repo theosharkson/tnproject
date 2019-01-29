@@ -13,4 +13,8 @@ class Portfolio extends Model
         'description',
         'active_status',
     ];
+
+    public function items(){
+        return $this->hasMany('App\PortfolioItem','protfolio_id');
+    }
 }

@@ -62,7 +62,7 @@
      @foreach($packageType->packages as $index => $package)
        <div class="row">
          <div class="col-lg-6 col-md-6 col-sm-12 {{$img_right?'col-md-push-6':''}}" >
-            <img class="img-responsive full-width" src="{{route('packages.images.large',['image'=>$package->image]) }}" alt=""> 
+            <img class="img-responsive full-width bringtop" src="{{route('packages.images.large',['image'=>$package->image]) }}" alt=""> 
          </div>
          <div class="col-lg-6 col-md-6 col-sm-12 sm-mt-30 sm-mb-30 {{!empty($img_right)?'col-md-pull-6':''}}">
            <div class="service-blog text-right"> 
@@ -83,10 +83,13 @@
                  @endforeach
                </ul>
 
-               <a class="button border" href="#">
+               {{-- <a class="button border" href="#">
                  Choose This
                  <i class="fa fa-long-arrow-right"></i>
-               </a>
+               </a> --}}
+              <a class="button border icon small bringtop" href="https://docs.google.com/forms/d/e/1FAIpQLSdHRe45TZTAmPfehJc2IXtH_ccS59XpeN07hkBLgaJfecj1zQ/viewform" target="blank"> 
+                Book Now <i class="fa fa-long-arrow-right"></i> 
+              </a>
            </div>
          </div>
        </div>

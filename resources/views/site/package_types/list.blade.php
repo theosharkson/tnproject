@@ -68,7 +68,13 @@
         <a href="{{route('site.photo-packages-list',['packageType'=>$package_type->id])}}">
           <div class="feature-box active">
             <div class="feature-box-content">
-            <i class="ti-heart"></i>
+            
+            @if($type == getPhotoType())
+              <i class="ti-image"></i>
+            @endif
+            @if($type == getVideoType())
+              <i class="ti-camera"></i>
+            @endif
             <h4>{{$package_type->name}}</h4>
             {{-- <p>{{$package_type->description}}</p> --}}
             </div>

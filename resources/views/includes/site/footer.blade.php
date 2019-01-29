@@ -26,8 +26,8 @@ raindrops  -->
                             <i class="ti-headphone text-white"></i>
                         </div>
                         <div class="contact-info">
-                            <h5 class="text-white">+(704) 279-1249</h5>
-                            <span class="text-white">Mon-Fri 8:30am-6:30pm</span>
+                            <h5 class="text-white">+(233) 50-136-0622</h5>
+                            <span class="text-white">Mon-Sun 8:30am-6:30pm</span>
                         </div>
                     </div>
                 </div>
