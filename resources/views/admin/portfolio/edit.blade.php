@@ -41,7 +41,7 @@
 
                         @if($portfolio->image)
                             <div class="form-group">
-                                <img class="center-img"  src="{{route('portfolio.images.thumb',['image'=>$portfolio->image]) }}">
+                                <img class="center-img"  src="{{route('portfolios.images.thumb',['image'=>$portfolio->image]) }}">
                             </div> 
                         @endif
 

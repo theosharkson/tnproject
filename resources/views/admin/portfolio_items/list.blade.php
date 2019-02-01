@@ -21,7 +21,14 @@
                         @foreach($portfolioItems->where('protfolio_id', $portfolio->id) as $portfolioItem)
                           <tr>
                               <td>
+                                @if($portfolio->type == 'photo')
                                 <img src="{{route('portfolio-items.images.thumb',['image'=>$portfolioItem->resource]) }}" style="height: 50px;">
+                                @else
+                                  <video width="120" height="100"  controls>
+                                     <source src="{{route('portfolio_item_videos',['file'=>$portfolioItem->resource]) }}" type="video/mp4">
+                                     Your browser does not support the video tag.
+                                  </video>
+                                @endif
                               </td>
                               <td>{{getPortfolioItemTypes()[$portfolioItem->type]}}</td>
                               {{-- <td>

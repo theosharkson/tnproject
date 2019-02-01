@@ -40,6 +40,13 @@ Route::resource('extras', ExtraController::class);
 Route::resource('portfolios', PortfolioController::class);
 Route::get('portfolios/{portfolio}/add-items', 'PortfolioItemController@create')->name('add-portfolio-items');
 Route::post('portfolios/{portfolio}/add-items', 'PortfolioItemController@store')->name('portfolio-items.store');
+
+Route::post('portfolios/{portfolio}/store-images', 'PortfolioItemController@storeImages')->name('portfolio-items.store-images');
+Route::post('portfolios-items/delete-images', 'PortfolioItemController@deleteImages')->name('portfolio-items.delete-images');
+
+Route::post('portfolios/{portfolio}/store-videos', 'PortfolioItemController@storeVideos')->name('portfolio-items.store-videos');
+Route::post('portfolios-items/delete-videos', 'PortfolioItemController@deleteVideos')->name('portfolio-items.delete-videos');
+
 Route::get('portfolios/{portfolio}/package/{package}/edit', 'PortfolioItemController@edit')->name('portfolio-items.edit');
 Route::put('portfolios/{portfolio}/package/{package}/update', 'PortfolioItemController@update')->name('portfolio-items.update');
 Route::delete('portfolio-item/{portfolioItem}/{portfolio}', 'PortfolioItemController@destroy')->name('portfolio-items.destroy');
@@ -69,7 +76,9 @@ Route::get('photo-packages/{packageType}', 'PackageController@photoPackagesList'
 Route::get('/portfolio', 'PortfolioController@selectType')->name('site.portfolio.select-type');
 Route::get('/photo-albums', 'PortfolioController@photoAlbums')->name('site.photo-albums');
 Route::get('/photo-albums/{portfolio}', 'PortfolioController@photoAlbumsShow')->name('site.photo-albums.show');
+
 Route::get('/video-albums', 'PortfolioController@videoAlbums')->name('site.video-albums');
+Route::get('/video-albums/{portfolio}', 'PortfolioController@videoAlbumsShow')->name('site.video-albums.show');
 
 
 //==========================================================
@@ -114,6 +123,10 @@ Route::get('/uploads/portfolio_item_images/{image}', function () { })->name('por
 Route::get('/uploads/portfolio_item_images_large/{image}', function () { })->name('portfolio-items.images.large');
 Route::get('/uploads/portfolio_item_images_thumb/{image}', function () { })->name('portfolio-items.images.thumb');
 Route::get('/uploads/portfolio_item_images_raw/{image}', function () { })->name('portfolio-items.images.raw');
+
+
+Route::get('/uploads/portfolio_item_videos/{file}', function () { })->name('portfolio_item_videos');
+
 
 
 

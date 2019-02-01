@@ -31,6 +31,10 @@
     <link href="{{asset('/admin-assets/plugins/jquery-tag-it/css/jquery.tagit.css')}}" rel="stylesheet" />
     <link href="{{asset('/admin-assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css')}}" rel="stylesheet" />
 
+
+    <link href="{{asset('/css/dropzone.css')}}" rel="stylesheet" type="text/css" media="all">  
+
+
     <link rel="stylesheet" href="{{asset('/admin-assets/plugins/toastr/toastr.min.css')}}">
 
     <link href="{{asset('/admin-assets/plugins/gritter/css/jquery.gritter.css')}}" rel="stylesheet" />

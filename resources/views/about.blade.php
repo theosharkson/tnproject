@@ -2,7 +2,7 @@
 
 @section('content')
  
-<section class="page-section-ptb bg-overlay-black-60 parallax" data-jarallax='{"speed": 0.6}' style="background: url({{asset('site-assets/images/slider/6.jpg')}});">
+<section class="page-section-ptb bg-overlay-black-60 parallax" data-jarallax='{"speed": 0.5}' style="background: url({{asset('site-assets/images/slider/6.jpg')}});">
   <div class="container">
     <div class="row">
       <div class="col-lg-6 col-md-6">

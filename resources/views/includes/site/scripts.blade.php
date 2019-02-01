@@ -30,5 +30,6 @@ console.log(plugin_path);
 <!-- revolution custom --> 
 <script type="text/javascript" src="{{asset('site-assets/revolution/js/revolution-custom.js')}}"></script> 
 
+<script src="{{asset('/js/dropzone.js')}}"></script>  
 
 <script type="text/javascript" src="{{asset('site-assets/js/custom.js')}}"></script>

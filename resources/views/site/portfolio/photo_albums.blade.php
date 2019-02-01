@@ -23,7 +23,7 @@
               </a> 
               <i class="fa fa-angle-double-right"></i>
             </li>
-            <li><span>Albums</span> </li>
+            <li><span>Photo Albums</span> </li>
        </ul>
      </div>
    </div>
@@ -51,10 +51,11 @@
            <img src="{{route('portfolios.images.large',['image'=>$album->image]) }}" alt="">
             <div class="portfolio-overlay">
               <h4 class="text-white">
-                <a href=""> {{$album->name}} </a> 
+                <i class="ti-image"></i>
+                {{$album->name}} 
               </h4>
               <span class="text-white"> 
-                <a href="#"> View Gallery </a> 
+                <a href="{{route('site.photo-albums.show',['portfolio'=>$album->id]) }}"> View Gallery </a> 
               </span>            
             </div>
             <a class="popup" 

@@ -51,6 +51,8 @@
     <script src="{{asset('admin-assets/plugins/money/simple.money.format.js')}}"></script>
 
     {{-- <script src="build/js/countrySelect.min.js"></script> --}}
+    
+    <script src="{{asset('/js/dropzone.js')}}"></script>  
 
     <script src="{{asset('/admin-assets/js/apps.min.js')}}"></script>
     
@@ -299,6 +301,190 @@
             console.log();
 
             $('.'+row).find('.quantity_used').html(not_used);
+        }
+
+
+
+
+
+        Dropzone.autoDiscover = false;
+
+
+        function InitiateImageUploader() {
+
+            //Set Initialized var to true
+            UPLOAD_INITIALIZED = true;
+
+            var delete_photobook_url =  "{{ route('portfolio-items.delete-images') }}";
+            console.log(delete_photobook_url);
+            // var total_photos_counter = 0;
+            $("#my-dropzone").dropzone ({
+                uploadMultiple: false,
+                acceptedFiles: 'image/*',
+                parallelUploads: 1,
+                // maxFilesize: 16,
+                // maxFiles: picture_upload_limit,
+                previewTemplate: document.querySelector('#preview').innerHTML,
+                addRemoveLinks: true,
+                dictRemoveFile: 'Remove image',
+                dictFileTooBig: 'Image is larger than 16MB',
+                timeout: 10000,
+
+                init: function () {
+                    var dz = this;
+                    this.on("removedfile", function (file) {
+                        // var name = file.previewElement.querySelector('[data-dz-name]').innerHTML;
+                        var id = file.previewElement.querySelector('[data-dz-id]').innerHTML;
+
+                        $.ajax({
+                        type: "POST",
+                            url: delete_photobook_url,
+                            data: {id: id, _token: $('[name="_token"]').val()},
+                            dataType: 'json',
+                            success: function (data) {
+                                // total_photos_counter--;
+
+                                // $("#counter").html(data.uploaded);
+                                // checkAddToCart(data.uploaded)
+                                console.log(data);
+                            }
+                        });
+                        // $("#selected_count").html(dz.files.length);
+                    });
+
+                    this.on('error', function(file, response) {
+                        if(typeof response === 'object'){
+                            
+                            if (response.exception == "Symfony\\Component\\HttpFoundation\\File\\Exception\\FileException") {
+                                $(file.previewElement).find('.dz-error-message').text("This Image is too Large");
+                            }else{
+                                $(file.previewElement).find('.dz-error-message').text(response.message);
+                            }
+
+
+                        }else{
+                            $(file.previewElement).find('.dz-error-message').text(response);
+                        }
+
+
+                        if (!file.accepted) this.removeFile(file);
+
+                        console.log(response);
+
+
+                    });
+
+                    
+                },
+
+
+                success: function (file, response) {
+                    console.log(response);
+
+                    var fileuploded = file.previewElement.querySelector("[data-dz-name]");
+                    var fileuplodedid = file.previewElement.querySelector("[data-dz-id]");
+                        fileuploded.innerHTML = response.newfilename;
+                        fileuplodedid.innerHTML = response.newfileid;
+
+                },
+
+
+                renameFilename: function (filename) {
+                    console.log(filename)
+                    return new Date().getTime() + '_' + filename;
+                }
+
+            });
+
+        }
+
+
+        function InitiateVideoUploader() {
+
+            //Set Initialized var to true
+            UPLOAD_INITIALIZED = true;
+
+            var delete_photobook_url =  "{{ route('portfolio-items.delete-videos') }}";
+            console.log(delete_photobook_url);
+            // var total_photos_counter = 0;
+            $("#my-dropzone-video").dropzone ({
+                uploadMultiple: false,
+                acceptedFiles: 'video/*',
+                parallelUploads: 1,
+                // maxFilesize: 16,
+                // maxFiles: picture_upload_limit,
+                // previewTemplate: document.querySelector('#preview').innerHTML,
+                // addRemoveLinks: true,
+                dictRemoveFile: 'Remove Video',
+                dictFileTooBig: 'Video is larger than 16MB',
+                timeout: 10000,
+
+                init: function () {
+                    var dz = this;
+                    this.on("removedfile", function (file) {
+                        // var name = file.previewElement.querySelector('[data-dz-name]').innerHTML;
+                        var id = file.previewElement.querySelector('[data-dz-id]').innerHTML;
+
+                        $.ajax({
+                        type: "POST",
+                            url: delete_photobook_url,
+                            data: {id: id, _token: $('[name="_token"]').val()},
+                            dataType: 'json',
+                            success: function (data) {
+                                // total_photos_counter--;
+
+                                // $("#counter").html(data.uploaded);
+                                // checkAddToCart(data.uploaded)
+                                console.log(data);
+                            }
+                        });
+                        // $("#selected_count").html(dz.files.length);
+                    });
+
+                    this.on('error', function(file, response) {
+                        if(typeof response === 'object'){
+                            
+                            if (response.exception == "Symfony\\Component\\HttpFoundation\\File\\Exception\\FileException") {
+                                $(file.previewElement).find('.dz-error-message').text("This Image is too Large");
+                            }else{
+                                $(file.previewElement).find('.dz-error-message').text(response.message);
+                            }
+
+
+                        }else{
+                            $(file.previewElement).find('.dz-error-message').text(response);
+                        }
+
+
+                        if (!file.accepted) this.removeFile(file);
+
+                        console.log(response);
+
+
+                    });
+
+                    
+                },
+
+
+                success: function (file, response) {
+                    console.log(response);
+
+                    // var fileuploded = file.previewElement.querySelector("[data-dz-name]");
+                    // var fileuplodedid = file.previewElement.querySelector("[data-dz-id]");
+                    //     fileuploded.innerHTML = response.newfilename;
+                    //     fileuplodedid.innerHTML = response.newfileid;
+
+                },
+
+
+                renameFilename: function (filename) {
+                    console.log(filename)
+                    // return new Date().getTime() + '_' + filename;
+                }
+
+            });
+
         }
 
 

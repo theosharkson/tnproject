@@ -102,17 +102,17 @@ function save_image($image,$person_type,$update_image=0){
     $thumbnail_path = base_path() . '/public/uploads/'.$person_type.'_images_thumb/';
 
     if(!File::exists($destination_path)) {
-	    File::makeDirectory($destination_path, $mode = 0777, true, true);
-	}
-	if(!File::exists($destination_actua_path)) {
-	    File::makeDirectory($destination_actua_path, $mode = 0777, true, true);
-	}
-	if(!File::exists($destination_actua_path_large)) {
-	    File::makeDirectory($destination_actua_path_large, $mode = 0777, true, true);
-	}
-	if(!File::exists($thumbnail_path)) {
-	    File::makeDirectory($thumbnail_path, $mode = 0777, true, true);
-	}
+        File::makeDirectory($destination_path, $mode = 0777, true, true);
+    }
+    if(!File::exists($destination_actua_path)) {
+        File::makeDirectory($destination_actua_path, $mode = 0777, true, true);
+    }
+    if(!File::exists($destination_actua_path_large)) {
+        File::makeDirectory($destination_actua_path_large, $mode = 0777, true, true);
+    }
+    if(!File::exists($thumbnail_path)) {
+        File::makeDirectory($thumbnail_path, $mode = 0777, true, true);
+    }
 
 
     $Product_Image->move($destination_path, $filename);
@@ -149,6 +149,25 @@ function save_image($image,$person_type,$update_image=0){
 
     // $new_image->fit(200)->save($thumbnail_path.$filename);
     $new_image->resize(150, null , function($ratio){$ratio->aspectRatio();})->save($thumbnail_path.$filename);
+
+    return $filename;
+
+}
+
+function save_file($file,$person_type){
+    ini_set('memory_limit','256M');
+
+    $filename = date_timestamp_get(date_create()).generateRandomString(10).'.' . $file->getClientOriginalExtension();
+
+    $destination_path = base_path() . '/public/uploads/'.$person_type.'/';
+
+    if(!File::exists($destination_path)) {
+	    File::makeDirectory($destination_path, $mode = 0777, true, true);
+	}
+	
+
+    $file->move($destination_path, $filename);
+
 
     return $filename;
 

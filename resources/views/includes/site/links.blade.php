@@ -33,7 +33,11 @@
 
 <link href="{{asset('site-assets/css/shop.css')}}" rel="stylesheet" type="text/css" /> 
 
+
+<link href="{{asset('/css/dropzone.css')}}" rel="stylesheet" type="text/css" media="all">  
+
 <!-- Responsive -->
 <link rel="stylesheet" type="text/css" href="{{asset('site-assets/css/responsive.css')}}" /> 
+
  
 <link rel="stylesheet" type="text/css" href="{{asset('site-assets/css/mystyle.css')}}" />
