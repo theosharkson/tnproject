@@ -2,7 +2,7 @@
 
 @section('content')
  
-<section class="page-title bg-overlay-black-60 parallax" data-jarallax='{"speed": 0.6}' style="background-image: url(http://teamnhyira.com/wp-content/uploads/2018/03/09-1.jpg);">
+<section class="page-title bg-overlay-black-60 parallax" data-jarallax='{"speed": 0.6}' style="background-image: url({{route('package-type.images.raw',['image'=>$packageType->image]) }});">
   <div class="container">
     <div class="row"> 
       <div class="col-lg-12"> 
@@ -87,9 +87,19 @@
                  Choose This
                  <i class="fa fa-long-arrow-right"></i>
                </a> --}}
-              <a class="button border icon small bringtop" href="https://docs.google.com/forms/d/e/1FAIpQLSdHRe45TZTAmPfehJc2IXtH_ccS59XpeN07hkBLgaJfecj1zQ/viewform" target="blank"> 
-                Book Now <i class="fa fa-long-arrow-right"></i> 
-              </a>
+              <div class="row">
+                <div class="col-sm-6">
+                  <h3 class="">
+                    <i class="fa fa-money"></i>
+                    GH₵ {{currency($package->price)}}
+                  </h3>
+                </div>
+                <div class="col-sm-6">
+                  <a class="button border icon small bringtop" href="{{route('site.bookings.customize', ['package' => $package->id])}}"> 
+                    Book Now <i class="fa fa-long-arrow-right"></i> 
+                  </a>
+                </div>
+              </div>
            </div>
          </div>
        </div>

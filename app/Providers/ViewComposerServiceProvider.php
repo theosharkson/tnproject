@@ -33,7 +33,8 @@ class ViewComposerServiceProvider extends ServiceProvider
         View::composer(['admin.portfolio_items.list'],'App\ViewComposers\AdminComposers\PortfolioItemsComposer');
 
 
-        View::composer(['admin.extras.list'],'App\ViewComposers\AdminComposers\ExtrasComposer');
+        View::composer(['admin.extras.list',
+                        'site.bookings.customize'],'App\ViewComposers\AdminComposers\ExtrasComposer');
 
 
 

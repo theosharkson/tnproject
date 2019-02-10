@@ -80,6 +80,8 @@ Route::get('/photo-albums/{portfolio}', 'PortfolioController@photoAlbumsShow')->
 Route::get('/video-albums', 'PortfolioController@videoAlbums')->name('site.video-albums');
 Route::get('/video-albums/{portfolio}', 'PortfolioController@videoAlbumsShow')->name('site.video-albums.show');
 
+Route::get('/bookings/{package}/customize', 'BookingController@customize')->name('site.bookings.customize');
+
 
 //==========================================================
 

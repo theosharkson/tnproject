@@ -64,7 +64,7 @@
    class="service-3 @if($type == getPhotoType()) text-center @endif">
 
     @foreach($package_types->where('category',$type) as $index => $package_type)
-      <div class="col-lg-4 col-md-4 col-sm-4">
+      <div class="col-lg-4 col-md-4 col-sm-4 mt-10">
         <a href="{{route('site.photo-packages-list',['packageType'=>$package_type->id])}}">
           <div class="feature-box active">
             <div class="feature-box-content">

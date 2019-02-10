@@ -33,6 +33,10 @@ function checkPermission($permission, $feature){
     return true;
 }
 
+function currency($value)
+{
+  return number_format($value,2);
+}
 
 function Apikey(){
     return 'G2Nw+fj7TEHvS4P2ShBDc6L4tWkizNkMTmyx4KcyAWqDk75BHWAdaPqmKp1LLeHB';

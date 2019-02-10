@@ -16,7 +16,7 @@ class CreatePackageTypesTable extends Migration
         Schema::create('package_types', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->string('category');
             $table->integer('active_status')->default('1');

@@ -625,7 +625,7 @@ POTENZA.wowanimation = function () {
     if ($('.wow').exists()) {
         var wow = new WOW({
            animateClass: 'animated',
-           offset: 100,
+           offset: 0,
            mobile: false
         });
        wow.init();
