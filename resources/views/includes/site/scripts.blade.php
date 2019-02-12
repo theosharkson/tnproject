@@ -31,5 +31,13 @@ console.log(plugin_path);
 <script type="text/javascript" src="{{asset('site-assets/revolution/js/revolution-custom.js')}}"></script> 
 
 <script src="{{asset('/js/dropzone.js')}}"></script>  
+<script src="{{asset('site-assets/js/money/simple.money.format.js')}}"></script>
+<script src="{{asset('site-assets/js/accounting/accounting.js')}}"></script>
 
 <script type="text/javascript" src="{{asset('site-assets/js/custom.js')}}"></script>
+
+<script type="text/javascript">
+	function currency(value) {
+		return accounting.formatMoney(value,"");
+	}
+</script>

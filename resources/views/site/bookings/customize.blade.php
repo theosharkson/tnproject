@@ -92,7 +92,7 @@
                </div>
 
                <div class="product-detail-meta">
-                 <div class="row">
+                 <div class="row mb-20">
                    <div class="col-lg-6 col-md-6">
                     <h5 style="margin-bottom: 0px;">
                       Available Extras
@@ -123,6 +123,7 @@
                                          <ul class="list-style-unstyled">
                                             <li class="color">
                                               GH₵ <mark>{{currency($extra->price)}}</mark>
+                                              <input type="hidden" id="base_price" value="{{$extra->price}}">
                                             </li>
                                             <li>
                                               <a href="javascript:void(0)" data-toggle="modal" data-target=".bs-example-modal-sm-{{$key}}">
@@ -137,7 +138,7 @@
                                 <div class="col-sm-4">
                                   <button style="font-size: 10px;" 
                                       class="button border black icon x-small pull-right"
-                                      onclick="$('#extra_item_{{$key}}').hide('slow');  $('#extras_content_{{$key}} .cart-item').clone().prop('id', 'added_extra_{{$key}}').appendTo($('#user_extras'));">
+                                      onclick="$('#extra_item_{{$key}}').hide('slow'); $('html, body').animate({scrollTop: $('#all_added_extras').offset().top-200}, 500);  $('#extras_content_{{$key}} .cart-item').clone().prop('id', 'added_extra_{{$key}}').appendTo($('#user_extras')); calculateTotal()">
                                        add extra 
                                      <i class="fa fa-long-arrow-right"></i> 
                                    </button>
@@ -170,13 +171,17 @@
                                        @endif
                                        <input 
                                          type="hidden"
-                                         type="{{$extra->id}}"
+                                         value="{{$extra->id}}"
                                          name="[extra][id]">
+                                         <input 
+                                         type="hidden"
+                                         class="extra_price"
+                                         value="{{$extra->price}}">
                                                
                                        <div class="cart-close">
                                            <p 
                                               style="font-size: 35px;"
-                                              onclick="removeElement('#added_extra_{{$key}}'); showElement('#extra_item_{{$key}}')">
+                                              onclick="removeElement('#added_extra_{{$key}}'); showElement('#extra_item_{{$key}}');">
                                              <i class="fa fa-times-circle"></i> 
                                            </p>
                                         </div>
@@ -223,7 +228,7 @@
                    </div>
 
 
-                   <div class="col-lg-6 col-md-6">
+                   <div class="col-lg-6 col-md-6" id="all_added_extras">
                     <h5 style="margin-bottom: 0px;">
                       Your Added Extras
                     </h5>
@@ -245,18 +250,35 @@
                    </div>
 
                  </div>
+
+                 <div class="row">
+                   <div class="col-sm-12">
+                     <div class="pattern  pl-20 pr-20 pt-40 pb-40 text-center add-shadow animated bounceInRight"
+                     style="background-image: url({{asset('site-assets/images/pattern/bg-pattern-3.jpg')}}); border-radius: 3px 6pc;"
+                     >
+                        <h3 class="pl-10"><i class="fa fa-money"></i> TOTAL PRICE:</h3>
+                        <h1 class="pl-10">GH₵ <mark id="total_price">{{currency($package->price)}}</mark></h1>
+                      </div>
+                   </div>
+                   <div class="col-sm-12 text-center">
+                    <button name="submit" type="submit" value="Send" class="button mt-30">
+                      <span> Place Order <i class="fa fa-paper-plane"></i></span> 
+                    </button>
+                   </div>
+                 </div>
+
                </div>
 
-             <div class="product-detail-social">
-                <span>Share:</span>
-                <ul class="list-style-none">
-                   <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
-                   <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
-                   <li><a href="#"> <i class="fa fa-google-plus"></i> </a></li>
-                   <li><a href="#"> <i class="fa fa-rss"></i> </a></li>
-                   <li><a href="#"> <i class="fa fa-envelope-o"></i> </a></li>
-                 </ul>
-             </div>
+               <div class="product-detail-social">
+                  <span>Share:</span>
+                  <ul class="list-style-none">
+                     <li><a href="#"> <i class="fa fa-facebook"></i> </a></li>
+                     <li><a href="#"> <i class="fa fa-twitter"></i> </a></li>
+                     <li><a href="#"> <i class="fa fa-google-plus"></i> </a></li>
+                     <li><a href="#"> <i class="fa fa-rss"></i> </a></li>
+                     <li><a href="#"> <i class="fa fa-envelope-o"></i> </a></li>
+                   </ul>
+               </div>
 
          </div>
        </div>
@@ -281,6 +303,7 @@
 
       new_ele.hide('slow',function() {
         new_ele.remove();
+        calculateTotal();
       });
     }
 
@@ -292,5 +315,24 @@
         // new_ele.remove();
       });
     }
+
+
+    function calculateTotal() {
+      var base_price = parseFloat($('#base_price').val());
+      var extras = $('#all_added_extras .extra_price');
+
+      var added_extras_total = 0;
+
+      $.each( extras, function( key, extra_price ) {
+        added_extras_total = parseFloat(added_extras_total) + parseFloat($(extra_price).val());
+      });
+
+      // console.log(base_price);
+      var total = added_extras_total + base_price;
+
+      $('#total_price').html(currency(total));
+      // console.log(total);
+    }
+
   </script>
 @endsection
