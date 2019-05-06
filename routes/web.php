@@ -21,6 +21,11 @@ Route::get('/admin', function () {
 
 Auth::routes();
 
+//+++++++++++++++++++++++++++++
+//ADD AUTH GOURD/MIDDLEWARE
+//+++++++++++++++++++++++++++++
+Route::group(['middleware' => ['auth']], function () {
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('user-types', UserTypeController::class);
@@ -52,6 +57,7 @@ Route::put('portfolios/{portfolio}/package/{package}/update', 'PortfolioItemCont
 Route::delete('portfolio-item/{portfolioItem}/{portfolio}', 'PortfolioItemController@destroy')->name('portfolio-items.destroy');
 
 
+});
 
 
 
@@ -62,6 +68,25 @@ Route::delete('portfolio-item/{portfolioItem}/{portfolio}', 'PortfolioItemContro
  * Site Routes
  *
  */
+
+
+//+++++++++++++++++++++++++++++
+//ADD AUTH GOURD/MIDDLEWARE
+//+++++++++++++++++++++++++++++
+Route::group(['middleware' => ['auth']], function () {
+
+	Route::get('/bookings/{package}/customize', 'BookingController@customize')->name('site.bookings.customize');
+	
+	Route::resource('orders', OrderController::class);
+	Route::post('/order-package/{orderPackage}/delete', 'OrderPackageController@delete')->name('site.order-package.delete');
+	Route::get('/cart', 'OrderController@viewCart')->name('view-cart');
+	Route::get('/cart/{order_package}/edit', 'OrderController@editOrderPackage')->name('edit-cart-item');
+	Route::post('/cart/{order_package}/update', 'OrderController@updateOrderPackage')->name('update-cart-item');
+
+});
+
+
+
 Route::get('/about', function () {
     return view('about');
 })->name('site.about');
@@ -80,8 +105,6 @@ Route::get('/photo-albums/{portfolio}', 'PortfolioController@photoAlbumsShow')->
 Route::get('/video-albums', 'PortfolioController@videoAlbums')->name('site.video-albums');
 Route::get('/video-albums/{portfolio}', 'PortfolioController@videoAlbumsShow')->name('site.video-albums.show');
 
-Route::get('/bookings/{package}/customize', 'BookingController@customize')->name('site.bookings.customize');
-
 
 //==========================================================
 
@@ -96,6 +119,7 @@ Route::get('/uploads/product_images_raw/{image}', function () { })->name('produc
 Route::get('/uploads/package_images/{image}', function () { })->name('packages.images.full');
 Route::get('/uploads/package_images_large/{image}', function () { })->name('packages.images.large');
 Route::get('/uploads/package_images_thumb/{image}', function () { })->name('packages.images.thumb');
+Route::get('/uploads/package_images_cart_thumb/{image}', function () { })->name('packages.images.cartthumb');
 Route::get('/uploads/package_images_raw/{image}', function () { })->name('packages.images.raw');
 
 Route::get('/uploads/package_type_images/{image}', function () { })->name('package-type.images.full');

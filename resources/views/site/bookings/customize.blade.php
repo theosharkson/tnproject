@@ -15,9 +15,9 @@
 
         <ul class="page-breadcrumb">
           <li>
-            <a href="#">
-              <i class="{{route('site')}}"></i> Home
-            </a> 
+            <a href="{{route('site')}}">
+              <i class="fa fa-home"></i> Home
+            </a>  
             <i class="fa fa-angle-double-right"></i>
           </li>
           {{-- <li><a href="#">page</a> <i class="fa fa-angle-double-right"></i></li> --}}
@@ -55,219 +55,230 @@
                   <a class="button small" href="#">Add to cart</a>
                 </div>
               </div> --}}
-
               
 
-               <div class="row">
-
-                 <div class="col-sm-6">
-                   <div class="product-detail-des mb-30">
-                      <ul class="list list-unstyled list-arrow">
-                        @php
-                           $products = preg_split('/\n|\r\n?/', $package->description);
-                           // dd($options);
-                         @endphp
-                         @foreach($products as $product)
-                           <li>{{$product}}</li>
-                         @endforeach
-                      </ul>
-                    </div>
-                 </div>
-
-                 <div class="col-sm-6">
-                   <div class="pattern  pl-20 pr-20 pt-40 pb-40 text-center swing wow"
-                   style="background-image: url({{asset('site-assets/images/pattern/bg-pattern-1.jpg')}});">
-                      <h3 class="pl-10"><i class="fa fa-money"></i> Base Price:</h3>
-                      <h3 class="pl-10">GH₵ <mark>{{currency($package->price)}}</mark></h3>
-                    </div>
-                 </div>
-
-               </div>
-
-               <br>
-
-               <div class="product-detail-title mb-20 sm-mt-40 text-center">
-                 <h4 class="mb-10 ">Add Extras</h4>
-                 <span>Customize Package by adding extra deliverables to suite your needs</span>
-               </div>
-
-               <div class="product-detail-meta">
-                 <div class="row mb-20">
-                   <div class="col-lg-6 col-md-6">
-                    <h5 style="margin-bottom: 0px;">
-                      Available Extras
-                    </h5>
-                    <p>
-                      <small>click on any to view details</small>
-                    </p>
-                      
-
-                     <div class="sidebar-widgets-wrap">
-                       <div class="sidebar-widget mb-40">
-
-                         @foreach($extras as $key => $extra)
-
-                           <div class="recent-item clearfix" id="extra_item_{{$key}}">
-                              <div class="row">
-                                <div class="col-sm-8 m-0">
-                                  <div class="recent-image">
-                                      <a href="javascript:void(0)" data-toggle="modal" data-target=".bs-example-modal-sm-{{$key}}">
-                                        <img class="img-responsive" src="{{route('extras.images.thumb',['image'=>$extra->image]) }}" alt="">
-                                      </a>
-                                  </div>
-                                  <div class="recent-info">
-                                      <div class="recent-title">
-                                           <a href="javascript:void(0)" data-toggle="modal" data-target=".bs-example-modal-sm-{{$key}}">{{$extra->name}}</a> 
-                                      </div>
-                                      <div class="recent-meta">
-                                         <ul class="list-style-unstyled">
-                                            <li class="color">
-                                              GH₵ <mark>{{currency($extra->price)}}</mark>
-                                              <input type="hidden" id="base_price" value="{{$extra->price}}">
-                                            </li>
-                                            <li>
-                                              <a href="javascript:void(0)" data-toggle="modal" data-target=".bs-example-modal-sm-{{$key}}">
-                                                <i class="fa fa-eye"></i> details
-                                              </a>
-                                            </li>
-                                        </ul>    
-                                     </div>
-                                  </div>
-                                </div>
-
-                                <div class="col-sm-4">
-                                  <button style="font-size: 10px;" 
-                                      class="button border black icon x-small pull-right"
-                                      onclick="$('#extra_item_{{$key}}').hide('slow'); $('html, body').animate({scrollTop: $('#all_added_extras').offset().top-200}, 500);  $('#extras_content_{{$key}} .cart-item').clone().prop('id', 'added_extra_{{$key}}').appendTo($('#user_extras')); calculateTotal()">
-                                       add extra 
-                                     <i class="fa fa-long-arrow-right"></i> 
-                                   </button>
-
-                                   <div id="extras_content_{{$key}}" style="display: none;">
-                                     
-                                     <div class="cart-item bounceInRight wow">
-                                       <div class="cart-image">
-                                         <img class="img-responsive" src="{{route('extras.images.thumb',['image'=>$extra->image]) }}" alt="">
-                                       </div>
-                                       <div class="cart-name clearfix">
-                                         <strong style="padding-left:0px;">
-                                           {{$extra->name}}
-                                         </strong>
-                                         <div class="cart-price">
-                                           <ins>GH₵ {{currency($extra->price)}}</ins>
-                                        </div>
-                                       </div>
-                                       @if($extra->type == 'deliverable')
-                                         <div class="cart-name clearfix">
-                                           <input 
-                                             style="width: 90px; position: absolute; right: 67px;" 
-                                             type="number" 
-                                             class="form-control" 
-                                             name="[extra][qty]"
-                                             placeholder="Qty"
-                                             value=""
-                                             min="1">
-                                         </div>
-                                       @endif
-                                       <input 
-                                         type="hidden"
-                                         value="{{$extra->id}}"
-                                         name="[extra][id]">
-                                         <input 
-                                         type="hidden"
-                                         class="extra_price"
-                                         value="{{$extra->price}}">
-                                               
-                                       <div class="cart-close">
-                                           <p 
-                                              style="font-size: 35px;"
-                                              onclick="removeElement('#added_extra_{{$key}}'); showElement('#extra_item_{{$key}}');">
-                                             <i class="fa fa-times-circle"></i> 
-                                           </p>
-                                        </div>
-                                     </div>
-
-                                   </div>
-
-                                </div>
-                                
-                                
-
-                                <div class="modal fade bs-example-modal-sm-{{$key}}" tabindex="-1" role="dialog" >
-                                  <div class="modal-dialog modal-sm" role="document">
-                                    <div class="modal-content bg-overlay-black-60" style="background: url({{route('extras.images.large',['image'=>$extra->image]) }}); position: initial;">
-                                       <div class="modal-header" >
-                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                          <div class="section-title mb-10">
-                                        <h6 class="text-white">EXTRAS</h6>
-                                        <h2 class="text-white">TEAM NHYIRA</h2>
-                                        <p class="text-white">{{$extra->name}}</p>
-                                      </div>
-                                        </div>
-                                        <div class="modal-body text-white" >
-                                          @if(!empty($extra->description))
-                                            <span style="margin: 0px 5px 0px 0px;" class="dropcap border">{{substr($extra->description, 0 , 1)}}</span>
-                                            {{ substr($extra->description, 1)}}
-                                          @else
-
-                                          @endif
-                                         
-                                        </div>
-                                        <div class="modal-footer">
-                                        </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>          
-
-                            </div>
-                          @endforeach
-                       </div>
-                     </div>
-
-                   </div>
-
-
-                   <div class="col-lg-6 col-md-6" id="all_added_extras">
-                    <h5 style="margin-bottom: 0px;">
-                      Your Added Extras
-                    </h5>
-                    <p>
-                      <small>Customize your package by adding any of our extras</small>
-                    </p>
-
-                    <div class="row" id="user_extras">
-
-                      
-
-
-                      
-
-                      
-
-                    </div>
-
-                   </div>
-
-                 </div>
-
                  <div class="row">
-                   <div class="col-sm-12">
-                     <div class="pattern  pl-20 pr-20 pt-40 pb-40 text-center add-shadow animated bounceInRight"
-                     style="background-image: url({{asset('site-assets/images/pattern/bg-pattern-3.jpg')}}); border-radius: 3px 6pc;"
-                     >
-                        <h3 class="pl-10"><i class="fa fa-money"></i> TOTAL PRICE:</h3>
-                        <h1 class="pl-10">GH₵ <mark id="total_price">{{currency($package->price)}}</mark></h1>
+
+                   <div class="col-sm-6">
+                     <div class="product-detail-des mb-30">
+                        <ul class="list list-unstyled list-arrow">
+                          @php
+                             $products = preg_split('/\n|\r\n?/', $package->description);
+                             // dd($options);
+                           @endphp
+                           @foreach($products as $product)
+                             <li>{{$product}}</li>
+                           @endforeach
+                        </ul>
                       </div>
                    </div>
-                   <div class="col-sm-12 text-center">
-                    <button name="submit" type="submit" value="Send" class="button mt-30">
-                      <span> Place Order <i class="fa fa-paper-plane"></i></span> 
-                    </button>
+
+                   <div class="col-sm-6">
+                     <div class="pattern  pl-20 pr-20 pt-40 pb-40 text-center swing wow"
+                     style="background-image: url({{asset('site-assets/images/pattern/bg-pattern-1.jpg')}});">
+                        <h3 class="pl-10"><i class="fa fa-money"></i> Base Price:</h3>
+                        <h3 class="pl-10"><mark>{{getCurrencySymbol()}} {{currency($package->$county_price)}}</mark></h3>
+                        <input type="hidden" id="base_price" value="{{$package->$county_price}}">
+                      </div>
                    </div>
+
                  </div>
 
-               </div>
+                 <br>
+
+                 <div class="product-detail-title mb-20 sm-mt-40 text-center">
+                   <h4 class="mb-10 ">Add Extras</h4>
+                   <span>Customize Package by adding extra deliverables to suite your needs</span>
+                 </div>
+
+                 <div class="product-detail-meta">
+                   <div class="row mb-20">
+                     <div class="col-lg-6 col-md-6">
+                      <h5 style="margin-bottom: 0px;">
+                        Available Extras
+                      </h5>
+                      <p>
+                        <small>click on any to view details</small>
+                      </p>
+                        
+
+                       <div class="sidebar-widgets-wrap">
+                         <div class="sidebar-widget mb-40">
+
+                           @foreach($extras as $key => $extra)
+
+                             <div class="recent-item clearfix" id="extra_item_{{$key}}">
+                                <div class="row">
+                                  <div class="col-sm-8 m-0">
+                                    <div class="recent-image">
+                                        <a href="javascript:void(0)" data-toggle="modal" data-target=".bs-example-modal-sm-{{$key}}">
+                                          <img class="img-responsive" src="{{route('extras.images.thumb',['image'=>$extra->image]) }}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="recent-info">
+                                        <div class="recent-title">
+                                             <a href="javascript:void(0)" data-toggle="modal" data-target=".bs-example-modal-sm-{{$key}}">{{$extra->name}}</a> 
+                                        </div>
+                                        <div class="recent-meta">
+                                           <ul class="list-style-unstyled">
+                                              <li class="color">
+                                                <mark>{{getCurrencySymbol()}} {{currency($extra->$county_price)}}</mark>
+                                              </li>
+                                              <li>
+                                                <a href="javascript:void(0)" data-toggle="modal" data-target=".bs-example-modal-sm-{{$key}}">
+                                                  <i class="fa fa-eye"></i> details
+                                                </a>
+                                              </li>
+                                          </ul>    
+                                       </div>
+                                    </div>
+                                  </div>
+
+                                  <div class="col-sm-4">
+                                    <a href="javascript:void(0)" style="font-size: 10px;" 
+                                        class="button border black icon x-small pull-right"
+                                        onclick="$('#extra_item_{{$key}}').hide('slow'); $('html, body').animate({scrollTop: $('#all_added_extras').offset().top-200}, 500);  $('#extras_content_{{$key}} .cart-item').clone().prop('id', 'added_extra_{{$key}}').appendTo($('#user_extras')); calculateTotal()">
+                                         add extra 
+                                       <i class="fa fa-long-arrow-right"></i> 
+                                     </a>
+
+                                     <div id="extras_content_{{$key}}" style="display: none;">
+                                       
+                                       <div class="cart-item bounceInRight wow">
+                                         <div class="cart-image">
+                                           <img class="img-responsive" src="{{route('extras.images.thumb',['image'=>$extra->image]) }}" alt="">
+                                         </div>
+                                         <div class="cart-name clearfix">
+                                           <strong style="padding-left:0px;">
+                                             {{$extra->name}}
+                                           </strong>
+                                           <div class="cart-price">
+                                             <ins>{{getCurrencySymbol()}} {{currency($extra->$county_price)}}</ins>
+                                          </div>
+                                         </div>
+                                         @if($extra->type == 'deliverable')
+                                           <div class="cart-name clearfix">
+                                             <input 
+                                               style="width: 90px; position: absolute; right: 67px;" 
+                                               type="number" 
+                                               class="form-control extra_qty_{{$extra->id}}" 
+                                               name="extras[{{$key}}][quantity]"
+                                               placeholder="Qty"
+                                               value="1"
+                                               onkeyup="calculateExtraRow('extra_base_price_{{$extra->id}}', 'extra_price_{{$extra->id}}', 'extra_qty_{{$extra->id}}');" 
+                                               onchange="calculateExtraRow('extra_base_price_{{$extra->id}}', 'extra_price_{{$extra->id}}', 'extra_qty_{{$extra->id}}');" 
+                                               onMouseUp="calculateExtraRow('extra_base_price_{{$extra->id}}', 'extra_price_{{$extra->id}}', 'extra_qty_{{$extra->id}}');"
+                                               min="1">
+
+                                               <input 
+                                               type="hidden"
+                                               class="extra_base_price_{{$extra->id}}"
+                                               value="{{$extra->$county_price}}">
+                                           </div>
+                                         @endif
+                                         <input 
+                                           type="hidden"
+                                           value="{{$extra->id}}"
+                                           name="extras[{{$key}}][extra_id]">
+                                           <input 
+                                           type="hidden"
+                                           class="extra_price extra_price_{{$extra->id}}"
+                                           value="{{$extra->$county_price}}">
+                                                 
+                                         <div class="cart-close">
+                                             <p 
+                                                style="font-size: 35px;"
+                                                onclick="removeElement('#added_extra_{{$key}}'); showElement('#extra_item_{{$key}}');">
+                                               <i class="fa fa-times-circle"></i> 
+                                             </p>
+                                          </div>
+                                       </div>
+
+                                     </div>
+
+                                  </div>
+                                  
+                                  
+
+                                  <div class="modal fade bs-example-modal-sm-{{$key}}" tabindex="-1" role="dialog" >
+                                    <div class="modal-dialog modal-sm" role="document">
+                                      <div class="modal-content bg-overlay-black-60" style="background: url({{route('extras.images.large',['image'=>$extra->image]) }}); position: initial;">
+                                         <div class="modal-header" >
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <div class="section-title mb-10">
+                                          <h6 class="text-white">EXTRAS</h6>
+                                          <h2 class="text-white">TEAM NHYIRA</h2>
+                                          <p class="text-white">{{$extra->name}}</p>
+                                        </div>
+                                          </div>
+                                          <div class="modal-body text-white" >
+                                            @if(!empty($extra->description))
+                                              <span style="margin: 0px 5px 0px 0px;" class="dropcap border">{{substr($extra->description, 0 , 1)}}</span>
+                                              {{ substr($extra->description, 1)}}
+                                            @else
+
+                                            @endif
+                                           
+                                          </div>
+                                          <div class="modal-footer">
+                                          </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>          
+
+                              </div>
+                            @endforeach
+                         </div>
+                       </div>
+
+                     </div>
+
+                     
+
+                     <form method="POST" id="order_form" action="{{ route('orders.store') }}" >
+                      @csrf
+
+                      <input type="hidden" name="package_id" value="{{$package->id}}">
+                       <div class="col-lg-6 col-md-6" id="all_added_extras">
+                          <h5 style="margin-bottom: 0px;">
+                            Your Added Extras
+                          </h5>
+                          <p>
+                            <small>Customize your package by adding any of our extras</small>
+                          </p>
+
+                          <div class="row" id="user_extras">
+
+                            
+
+                          </div>
+
+                       </div>
+                     </form>
+                   </div>
+
+                   <div class="row">
+                     <div class="col-sm-12">
+                       <div class="pattern  pl-20 pr-20 pt-40 pb-40 text-center add-shadow animated bounceInRight"
+                       style="background-image: url({{asset('site-assets/images/pattern/bg-pattern-3.jpg')}}); border-radius: 3px 6pc;"
+                       >
+                          <h3 class="pl-10"><i class="fa fa-money"></i> TOTAL PRICE:</h3>
+                          <h1 class="pl-10">{{getCurrencySymbol()}} <mark id="total_price">{{currency($package->$county_price)}}</mark></h1>
+                        </div>
+                     </div>
+                     <div class="col-sm-12 text-center">
+                      <button 
+                        onclick="$('#order_form').submit();"
+                        class="button small mt-30">
+                        <span> Add to cart <i style="font-size: 20px; line-height: 10px;" class="ti-shopping-cart"></i></span> 
+                      </button>
+                     </div>
+                   </div>
+
+                 </div>
+
+              
 
                <div class="product-detail-social">
                   <span>Share:</span>
@@ -332,6 +343,35 @@
 
       $('#total_price').html(currency(total));
       // console.log(total);
+    }
+
+    function calculateExtraRow(base_price, price, qty) {
+      var quantity = parseInt($('#all_added_extras  .'+qty).val());
+      console.log(quantity);
+
+      if(!$.isNumeric(quantity)){
+          $('#all_added_extras  .'+qty).val(1);
+      }
+
+      quantity = parseInt($('#all_added_extras  .'+qty).val());
+
+      if (quantity <= 0) {
+          // console.log('true');
+          $('#all_added_extras  .'+qty).val(1);
+      }
+
+
+      var base_price = parseFloat($('#all_added_extras  .'+base_price).val());
+      // var price = parseFloat($('#all_added_extras  .'+price).val());
+      var quantity = parseInt($('#all_added_extras  .'+qty).val());
+      var price_input = $('#all_added_extras  .'+price);
+
+
+      var new_price = base_price * quantity;
+
+      price_input.val(new_price);
+
+      calculateTotal();
     }
 
   </script>

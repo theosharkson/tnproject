@@ -16,4 +16,13 @@ class Order extends Model
         'updated_by',
         'active_status',
     ];
+
+    public function packages(){
+        return $this->hasMany('App\OrderPackage','order_id');
+    }
+
+    public function extras(){
+        return $this->hasMany('App\OrderExtra','order_id');
+    }
+
 }

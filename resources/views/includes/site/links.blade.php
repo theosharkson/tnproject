@@ -39,5 +39,6 @@
 <!-- Responsive -->
 <link rel="stylesheet" type="text/css" href="{{asset('site-assets/css/responsive.css')}}" /> 
 
- 
+<link rel="stylesheet" href="{{asset('site-assets/js/toastr/toastr.min.css')}}">
+
 <link rel="stylesheet" type="text/css" href="{{asset('site-assets/css/mystyle.css')}}" />

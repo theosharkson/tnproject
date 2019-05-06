@@ -123,7 +123,7 @@
 
 
 
-            // Display Success messages
+        // Display Success messages
         @if(session()->has('success_message'))
             toastr.success('{{ session()->get('success_message') }}');
         @endif

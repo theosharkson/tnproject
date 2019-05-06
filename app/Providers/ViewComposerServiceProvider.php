@@ -34,7 +34,9 @@ class ViewComposerServiceProvider extends ServiceProvider
 
 
         View::composer(['admin.extras.list',
-                        'site.bookings.customize'],'App\ViewComposers\AdminComposers\ExtrasComposer');
+                        'site.bookings.customize',
+                        'site.bookings.edit_cart_package',
+                        ],'App\ViewComposers\AdminComposers\ExtrasComposer');
 
 
 
@@ -48,6 +50,7 @@ class ViewComposerServiceProvider extends ServiceProvider
             'site.package_types.photo',
         ],'App\ViewComposers\SiteComposers\PackageTypesComposer');
 
+        View::composer(['site.*'],'App\ViewComposers\SiteComposers\PriceColumnComposer');
     }
 
     /**

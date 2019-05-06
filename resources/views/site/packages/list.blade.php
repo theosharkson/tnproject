@@ -91,7 +91,7 @@
                 <div class="col-sm-6">
                   <h3 class="">
                     <i class="fa fa-money"></i>
-                    GH₵ {{currency($package->price)}}
+                    {{getCurrencySymbol()}} {{currency($package->$county_price)}}
                   </h3>
                 </div>
                 <div class="col-sm-6">

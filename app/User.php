@@ -54,6 +54,11 @@ class User extends Authenticatable
         return $this->belongsTo('App\UserType','user_type');
     }
 
+    public function tempOrder(){
+        return $this->hasOne('App\Order','user_id')->where('process_status',getTempId());
+    }
+
+
     function hasPermission($permission, $feature)
     {   
         $feature_id = 0;

@@ -57,8 +57,9 @@
                <input id="name" 
                class="web form-control" 
                type="text" 
-               placeholder="User name" 
+               placeholder="User email" 
                value="{{ old('email') }}" 
+               autocomplete="off" 
                name="email">
 
                @if ($errors->has('email'))

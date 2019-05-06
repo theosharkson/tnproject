@@ -18,7 +18,7 @@ class Package extends Model
     ];
 
 
-    public function type(){
+    public function type(){ 
         return $this->belongsTo('App\PackageType','type_id');
     }
 

@@ -1,3 +1,4 @@
+@include('includes.site.cart_item_removal_modal')
 
 <!-- jquery -->
 <script type="text/javascript" src="{{asset('site-assets/js/jquery-1.12.4.min.js')}}"></script>
@@ -36,8 +37,35 @@ console.log(plugin_path);
 
 <script type="text/javascript" src="{{asset('site-assets/js/custom.js')}}"></script>
 
+<script src="{{asset('site-assets/js/toastr/toastr.js')}}"></script>
+
 <script type="text/javascript">
 	function currency(value) {
 		return accounting.formatMoney(value,"");
 	}
+
+	$(document).ready(function() {
+
+		// Display Success messages
+        @if(session()->has('success_message'))
+            toastr.success('{{ session()->get('success_message') }}');
+        @endif
+
+        // Display Error messages
+        @if(session()->has('error_message'))
+            toastr.error('{{ session()->get('error_message') }}');
+        @endif
+
+        // Display Error messages
+        @if(session()->has('warning_message'))
+            toastr.warning('{{ session()->get('warning_message') }}');
+        @endif
+
+        // Display Error messages
+        @if(session()->has('info_message'))
+            toastr.info('{{ session()->get('info_message') }}');
+        @endif
+
+
+       });
 </script>
