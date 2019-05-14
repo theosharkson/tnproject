@@ -20,10 +20,24 @@ class OrderController extends Controller
         //
     }
 
+    public function pending()
+    {
+        $pending_orders = Order::where('process_status',getNewId())
+                                        ->where('active_status',1)
+                                        ->orderBy('created_at','desc')
+                                        ->get();
+        // dd($pending_orders->toArray());
+        return view('admin.orders.pending',compact('pending_orders'));
+    }
+
+
     public function viewCart()
     {
         return view('site.bookings.cart');
     }
+
+
+    
 
     public function editOrderPackage($order_package)
     {
@@ -83,9 +97,36 @@ class OrderController extends Controller
 
     }
 
-    
 
-    
+
+
+
+
+    public function checkoout()
+    {
+        if(empty(Auth::user()->tempOrder)){
+            return redirect()->back()->with('error_message','Sorry, No Order Found!!');
+        }
+
+        
+        //Try To Update the Order status to New 
+        try {
+
+            Auth::user()->tempOrder->update([
+                'process_status' => getNewId() ,
+                'date' => Carbon::now()
+            ]);
+
+        } catch (Exception $e) {
+            dd($e);
+            return redirect()->back()->with('error_message','Sorry, Something went wrong!!');
+
+        }
+
+
+        return redirect()->route('site')->with('success_message','Order Submitted Successful!!');
+
+    }
 
 
 
@@ -98,6 +139,10 @@ class OrderController extends Controller
     {
         //
     }
+
+
+
+    
 
     /**
      * Store a newly created resource in storage.
@@ -115,6 +160,7 @@ class OrderController extends Controller
 
         $params['user_id'] = Auth::id();
         $params['process_status'] = getTempId();
+        $params['payment_status'] = getPendingPaymentId();
         $params['date'] = Carbon::now();
         // $params['order_locations_id'] = getDefaultLocationId();
 

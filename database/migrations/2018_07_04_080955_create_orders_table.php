@@ -17,8 +17,10 @@ class CreateOrdersTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->integer('process_status')->default(0)->unsigned();
+            $table->integer('process_status')->nullable()->unsigned();
             $table->foreign('process_status')->references('id')->on('process_statuses');
+            $table->integer('payment_status')->nullable()->unsigned();
+            $table->foreign('payment_status')->references('id')->on('payment_statuses');
             $table->timestamp('date')->nullable(); 
             $table->string('location')->nullable();
             $table->integer('payment_method')->unsigned()->nullable();

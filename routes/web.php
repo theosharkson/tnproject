@@ -26,37 +26,38 @@ Auth::routes();
 //+++++++++++++++++++++++++++++
 Route::group(['middleware' => ['auth']], function () {
 
-Route::get('/home', 'HomeController@index')->name('home');
+	Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('user-types', UserTypeController::class);
-Route::resource('staffs', StaffController::class);
-Route::resource('package-types', PackageTypeController::class);
-// Route::resource('packages', PackageController::class);
-Route::get('package-types/{packageType}/add-packages', 'PackageController@create')->name('add-packages');
-Route::post('package-types/{packageType}/add-packages', 'PackageController@store')->name('packages.store');
-Route::get('package-types/{packageType}/package/{package}/edit', 'PackageController@edit')->name('packages.edit');
-Route::put('package-types/{packageType}/package/{package}/update', 'PackageController@update')->name('packages.update');
-Route::delete('package/{package}/{packageType}', 'PackageController@destroy')->name('packages.destroy');
+	Route::resource('user-types', UserTypeController::class);
+	Route::resource('staffs', StaffController::class);
+	Route::resource('package-types', PackageTypeController::class);
+	// Route::resource('packages', PackageController::class);
+	Route::get('package-types/{packageType}/add-packages', 'PackageController@create')->name('add-packages');
+	Route::post('package-types/{packageType}/add-packages', 'PackageController@store')->name('packages.store');
+	Route::get('package-types/{packageType}/package/{package}/edit', 'PackageController@edit')->name('packages.edit');
+	Route::put('package-types/{packageType}/package/{package}/update', 'PackageController@update')->name('packages.update');
+	Route::delete('package/{package}/{packageType}', 'PackageController@destroy')->name('packages.destroy');
 
-Route::resource('features', FeatureController::class);
-Route::resource('extras', ExtraController::class);
-
-
-Route::resource('portfolios', PortfolioController::class);
-Route::get('portfolios/{portfolio}/add-items', 'PortfolioItemController@create')->name('add-portfolio-items');
-Route::post('portfolios/{portfolio}/add-items', 'PortfolioItemController@store')->name('portfolio-items.store');
-
-Route::post('portfolios/{portfolio}/store-images', 'PortfolioItemController@storeImages')->name('portfolio-items.store-images');
-Route::post('portfolios-items/delete-images', 'PortfolioItemController@deleteImages')->name('portfolio-items.delete-images');
-
-Route::post('portfolios/{portfolio}/store-videos', 'PortfolioItemController@storeVideos')->name('portfolio-items.store-videos');
-Route::post('portfolios-items/delete-videos', 'PortfolioItemController@deleteVideos')->name('portfolio-items.delete-videos');
-
-Route::get('portfolios/{portfolio}/package/{package}/edit', 'PortfolioItemController@edit')->name('portfolio-items.edit');
-Route::put('portfolios/{portfolio}/package/{package}/update', 'PortfolioItemController@update')->name('portfolio-items.update');
-Route::delete('portfolio-item/{portfolioItem}/{portfolio}', 'PortfolioItemController@destroy')->name('portfolio-items.destroy');
+	Route::resource('features', FeatureController::class);
+	Route::resource('extras', ExtraController::class);
 
 
+	Route::resource('portfolios', PortfolioController::class);
+	Route::get('portfolios/{portfolio}/add-items', 'PortfolioItemController@create')->name('add-portfolio-items');
+	Route::post('portfolios/{portfolio}/add-items', 'PortfolioItemController@store')->name('portfolio-items.store');
+
+	Route::post('portfolios/{portfolio}/store-images', 'PortfolioItemController@storeImages')->name('portfolio-items.store-images');
+	Route::post('portfolios-items/delete-images', 'PortfolioItemController@deleteImages')->name('portfolio-items.delete-images');
+
+	Route::post('portfolios/{portfolio}/store-videos', 'PortfolioItemController@storeVideos')->name('portfolio-items.store-videos');
+	Route::post('portfolios-items/delete-videos', 'PortfolioItemController@deleteVideos')->name('portfolio-items.delete-videos');
+
+	Route::get('portfolios/{portfolio}/package/{package}/edit', 'PortfolioItemController@edit')->name('portfolio-items.edit');
+	Route::put('portfolios/{portfolio}/package/{package}/update', 'PortfolioItemController@update')->name('portfolio-items.update');
+	Route::delete('portfolio-item/{portfolioItem}/{portfolio}', 'PortfolioItemController@destroy')->name('portfolio-items.destroy');
+
+	
+	Route::get('/pending-orders', 'OrderController@pending')->name('orders.pending');
 });
 
 
@@ -82,7 +83,9 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::get('/cart', 'OrderController@viewCart')->name('view-cart');
 	Route::get('/cart/{order_package}/edit', 'OrderController@editOrderPackage')->name('edit-cart-item');
 	Route::post('/cart/{order_package}/update', 'OrderController@updateOrderPackage')->name('update-cart-item');
+	Route::post('/cart/checkout', 'OrderController@checkoout')->name('checkout');
 
+	Route::get('/dashboard/pending-payments', 'ClientDashboardController@pending')->name('dashboard.pending-payment');
 });
 
 

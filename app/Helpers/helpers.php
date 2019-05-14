@@ -322,6 +322,40 @@ function getDeliveredId()
 }
 
 
+function getPendingPaymentId()
+{
+    $record = \App\PaymentStatus::where('name','Pending Payment')->first();
+    if(!empty($record)){
+        return $record->id;
+    }else{
+        return null;
+    }
+}
+
+function getPendingPaymentApprovalId()
+{
+    $record = \App\PaymentStatus::where('name','Pending Payment Approval')->first();
+    if(!empty($record)){
+        return $record->id;
+    }else{
+        return null;
+    }
+}
+
+function getPaidId()
+{
+    $record = \App\PaymentStatus::where('name','Paid')->first();
+    if(!empty($record)){
+        return $record->id;
+    }else{
+        return null;
+    }
+}
+
+
+
+
+
 
 function getAdminRoleId()
 {

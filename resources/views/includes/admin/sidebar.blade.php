@@ -65,7 +65,43 @@
             </li>
             
 
+            <li class="has-sub {{in_array(Request::route()->getName(), [
+                                  'orders.pending',
 
+
+                              ]) ? 'active' : ''}}" >
+              <a href="javascript:;">
+                  <b class="caret pull-right"></b>
+                  <i class="fa fa-shopping-cart"></i>
+                  <span>Orders</span>
+              </a>
+
+              <ul class="sub-menu">
+                  
+                  <li class="{{in_array(Request::route()->getName(), [
+                                    'orders.pending',
+                                    
+
+                                    ]) ? 'active' : ''}}">
+                      <a href="{{route('orders.pending')}}">
+                          <i class="fa fa-dropbox"></i> 
+                          <span>Pending Orders</span>
+                      </a>
+                  </li>
+
+                  <li class="{{in_array(Request::route()->getName(), [
+                                    'orders.pending',
+
+                                    ]) ? 'active' : ''}}">
+                      <a href="{{route('orders.pending')}}">
+                          <i class="fa fa-shopping-cart"></i> 
+                          <span>All Orders</span>
+                      </a>
+                  </li>
+
+              </ul>
+
+            </li>
 
 
 

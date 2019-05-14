@@ -188,7 +188,14 @@
                         </tr>
                       </tbody>
                     </table>
-                    <a href="#" class="button btn-block">Place Order Now <span class="icon-action-redo"></span></a>
+                   
+                    <form method="POST" id="order_form" action="{{ route('checkout') }}" >
+                      @csrf
+
+                      <button type="submit" class="button btn-block">Place Order Now <span class="icon-action-redo"></span></button>
+
+                    </form>
+
                   </div>
                 </div>
               </div>

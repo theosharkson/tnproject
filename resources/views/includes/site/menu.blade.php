@@ -17,6 +17,22 @@
               <!-- menu links -->
               <div class="menu-bar">
                 <ul class="menu-links">
+                  
+                  
+
+                  @guest
+                  @else
+                    <li class="{{in_array(Request::route()->getName(), [
+                      'dashboard.pending-payment',
+
+                      ]) ? 'active' : ''}}">
+                      <a href="{{route('dashboard.pending-payment')}}"> 
+                        <i class="fa fa-dashboard"></i>
+                        DASHBOARD 
+                      </a>
+                    </li>
+                  @endguest
+
                   <li class="{{in_array(Request::route()->getName(), [
                     'site',
                     'site.packages',
@@ -40,6 +56,7 @@
                       {{-- <i class="fa fa-angle-down fa-indicator"></i> --}}
                     </a>
                   </li>
+                  
                   <li class="{{in_array(Request::route()->getName(), [
                     'site.portfolio.select-type',
                     'site.photo-albums',
@@ -50,6 +67,9 @@
                       {{-- <i class="fa fa-angle-down fa-indicator"></i> --}}
                     </a>
                   </li>
+
+                  
+                  
                   <li>
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSdHRe45TZTAmPfehJc2IXtH_ccS59XpeN07hkBLgaJfecj1zQ/viewform" target="blank"> 
                       BOOK US 

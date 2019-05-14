@@ -23,6 +23,10 @@
     font-size: 60%;
 }
 
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
+    background: #da9803;
+}
+
 .cart-remove-item{
     float: right;
     font-size: 50px;
