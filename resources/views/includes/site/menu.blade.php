@@ -23,10 +23,11 @@
                   @guest
                   @else
                     <li class="{{in_array(Request::route()->getName(), [
-                      'dashboard.pending-payment',
+                      'client-dashboard',
+                      'client-dashboard.pending-payment',
 
                       ]) ? 'active' : ''}}">
-                      <a href="{{route('dashboard.pending-payment')}}"> 
+                      <a href="{{route('client-dashboard')}}"> 
                         <i class="fa fa-dashboard"></i>
                         DASHBOARD 
                       </a>

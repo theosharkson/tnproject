@@ -1,4 +1,12 @@
-<section id="raindrops" class="raindrops" style="height: 50px;"></section>
+@if(!in_array(Request::route()->getName(), [
+                              'login',
+                              'register',
+                              'register-refrence',
+                              ]) )
+  
+  <section id="raindrops" class="raindrops" style="height: 50px;"></section>
+
+@endif
 
  <!--=================================
 raindrops  -->

@@ -77,7 +77,7 @@
                              </td>
                              <td  class="hidden-sm hidden-xs">
                                  <span class="fa fa-user"></span>
-                                 {{$pending_order->user->name}}
+                                 {{$pending_order->user->firstname}} {{$pending_order->user->lastname}}
                                   <br/>
                                   <span class="fa fa-envelope"></span>
                                  {{$pending_order->user->email}}

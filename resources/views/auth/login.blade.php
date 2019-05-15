@@ -19,7 +19,7 @@
                     </a>
                 </li>
                <li>
-                <a href="javascript::"> 
+                <a href="{{route('register')}}"> 
                     <i class="ti-pencil-alt"></i> Signup
                 </a>
                </li>
@@ -37,7 +37,7 @@
        <div class="col-md-4 theme-bg">
          <div class="login-box pos-r text-white login-box-theme">
           <h2 class="text-white mb-20">Welcome to TEAM NHYIRA</h2>
-          <p class="mb-10 text-white">Login your personal account  </p>
+          <p class="mb-10 text-white">Login to your personal account  </p>
           <p class="text-white">Or Create an account to start your personal experience with the exclusive photography and cinematography team. We are most ready to serve you to your satisfaction</p> 
           <ul class="list-unstyled list-inline pos-bot pb-40">
             <li><a class="text-white" href="#"> Terms of Use</a> </li>
@@ -53,7 +53,7 @@
                         @csrf
 
          <div class="section-field mb-20">
-             <label class="mb-10" for="name">User name* </label>
+             <label class="mb-10" for="name">Email* </label>
                <input id="name" 
                class="web form-control" 
                type="text" 
@@ -88,7 +88,7 @@
               <div class="remember-checkbox mb-30">
                  <input type="checkbox" class="form-control" name="two" id="two" />
                  <label for="two"> Remember me</label>
-                 <a href="password-recovery.html" class="pull-right">Forgot Password?</a>
+                 <a href="#" class="pull-right">Forgot Password?</a>
                 </div>
               </div>
 

@@ -17,6 +17,17 @@ function getCurrencySymbol(){
     return "GH₵";
 }
 
+
+//generate random unique code (general)
+function getTNid(){
+    do{
+        $rand = "TN-".generateRandomString(8);
+    }while(!empty(\App\User::where('tnid',$rand)->first()));
+    return $rand;
+}
+
+
+
 function getTypeCategories(){
     return [
         "photography" => "Photography",

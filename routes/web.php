@@ -20,6 +20,8 @@ Route::get('/admin', function () {
 })->name('dashboard');
 
 Auth::routes();
+Route::get('/register/{tnid}', 'UserController@registerRefrence')->name('register-refrence');
+Route::post('/register-user', 'UserController@store')->name('register-user');
 
 //+++++++++++++++++++++++++++++
 //ADD AUTH GOURD/MIDDLEWARE
@@ -85,7 +87,8 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::post('/cart/{order_package}/update', 'OrderController@updateOrderPackage')->name('update-cart-item');
 	Route::post('/cart/checkout', 'OrderController@checkoout')->name('checkout');
 
-	Route::get('/dashboard/pending-payments', 'ClientDashboardController@pending')->name('dashboard.pending-payment');
+	Route::get('/client-dashboard', 'ClientDashboardController@index')->name('client-dashboard');
+	Route::get('/client-dashboard/pending-payments', 'ClientDashboardController@pending')->name('client-dashboard.pending-payment');
 });
 
 
