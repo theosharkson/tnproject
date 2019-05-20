@@ -255,6 +255,8 @@
                           </div>
 
                        </div>
+
+                       <input type="hidden" name="checkout_direct" id="checkout_direct">
                      </form>
                    </div>
 
@@ -269,9 +271,19 @@
                      </div>
                      <div class="col-sm-12 text-center">
                       <button 
+                        onclick="$('#checkout_direct').remove();$('#order_form').submit();"
+                        class="button small mt-30">
+                        <span> Add to cart <i style="font-size: 15px; line-height: 5px;" class="ti-shopping-cart"></i></span> 
+                      </button>
+{{-- 
+                      <a class="button small mt-30" href="{{route('cart.terms')}}">
+                        
+                        <span> Checkout <i style="font-size: 15px; line-height: 5px;" class="ti-archive"></i></span> 
+                      </a> --}}
+                      <button 
                         onclick="$('#order_form').submit();"
                         class="button small mt-30">
-                        <span> Add to cart <i style="font-size: 20px; line-height: 10px;" class="ti-shopping-cart"></i></span> 
+                        <span>Add and Checkout <i style="font-size: 15px; line-height: 5px;" class="ti-archive"></i></span> 
                       </button>
                      </div>
                    </div>

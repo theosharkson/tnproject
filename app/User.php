@@ -30,6 +30,7 @@ class User extends Authenticatable
         'location',
         'user_type',
         'image',
+        'dashboard_activated',
         'active_status',
         'updated_by',
     ];

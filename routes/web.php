@@ -87,6 +87,10 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::post('/cart/{order_package}/update', 'OrderController@updateOrderPackage')->name('update-cart-item');
 	Route::post('/cart/checkout', 'OrderController@checkoout')->name('checkout');
 
+	Route::get('/cart/terms-and-conditions', 'OrderController@terms')->name('cart.terms');
+	Route::get('/cart/payment-steps', 'OrderController@paymentSteps')->name('cart.payment-steps');
+	Route::get('/cart/{orderId}/preview', 'OrderController@cartPreview')->name('cart.preview');
+
 	Route::get('/client-dashboard', 'ClientDashboardController@index')->name('client-dashboard');
 	Route::get('/client-dashboard/pending-payments', 'ClientDashboardController@pending')->name('client-dashboard.pending-payment');
 });

@@ -170,7 +170,7 @@
 
             <div class="pattern  pl-20 pr-20 pt-20 pb-20 mb-10" style="background: url({{asset('site-assets/images/pattern/pattern-bg.png) repeat;')}}">
                 <div class="section-field mb-20">
-                 <label class="mb-10" for="name">Refrence Code </label>
+                 <label class="mb-10" for="name">Reference Code </label>
                    <input id="refrence_tnid" 
                    class="web form-control" 
                    style="font-weight: bold;" 

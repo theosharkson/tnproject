@@ -11,6 +11,13 @@
 
 }
 
+
+.button.xx-small {
+    padding: 3px 6px;
+    font-size: 8px;
+}
+
+
 .mega-menu .menu-logo > li{
 	width: 100px;
 }
@@ -24,7 +31,7 @@
 }
 
 .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
-    background: #da9803;
+    background: #353535;
 }
 
 .invalid-feedback{

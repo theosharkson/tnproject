@@ -50,8 +50,8 @@
 
               <div class="col-sm-8">
                 <div class="action-box black-bg">
-                    <h3>Your Team Nhyira Refrence Link</h3>
-                    <p>{{route('register-refrence', ['tnid' => $user->tnid])}}</p>
+                    <h3>Your Team Nhyira Reference Link</h3>
+                    <p style="font-size: 15px;">{{route('register-refrence', ['tnid' => $user->tnid])}}</p>
                     {{-- <a class="button border white" href="#">
                       <span>Share Link</span>
                       <i class="fa fa-download"></i>
@@ -60,10 +60,10 @@
               </div>
 
               <div class="col-sm-4">
-                <div class="pattern  pl-20 pr-20 pt-20 pb-20 text-center fadeIn animated add-shadow"
+                <div class="pattern  pl-10 pr-10 pt-20 pb-20 text-center fadeIn animated add-shadow"
                 style="background-image: url({{asset('site-assets/images/pattern/bg-pattern-3.jpg')}});">
                    <h4 class="pl-0"><i class="ti-id-badge"></i> Your TN-ID</h4>
-                   <h2 class="pl-0"><mark>{{$user->tnid}}</mark></h2>
+                   <h3 class="pl-0"><mark>{{$user->tnid}}</mark></h3>
                  </div>
               </div>
 

@@ -41,6 +41,21 @@
        <div class="col-lg-9 col-md-9 page-content">
            <div class="section-title">
              <h2 >All Your Pending Orders</h2>
+
+             <div class="row">
+               <div class="col-sm-12">
+                 <div class="action-box theme-bg">
+                     <h3>Payment Details</h3>
+                     <p style="font-size: 15px;">Download Team Nhyira Payment Details To Complete Payment.</p>
+                     <a class="button border white" href="#">
+                       <span>Download</span>
+                       <i class="fa fa-download"></i>
+                    </a> 
+                 </div>
+               </div>
+             </div>
+
+
              <div class="table-responsive">
                  <table class="table table-striped table-bordered" style="width: 100%;">
                     <thead>
@@ -52,9 +67,10 @@
                     </thead>
                 
                    <tbody>
-                       @foreach(getOrdersPendingPayment() as $pending_order)
+                       @foreach(getOrdersPendingPayment() as $key => $pending_order)
                          <tr>
                              <td class="hidden-sm hidden-xs">
+                                 <h5> <i class="fa fa-ticket"></i> <small>Order Code :</small> {{$pending_order->code}}</h5>
                                  <span class="fa fa-clock-o"></span>
                                  {{humanDate($pending_order->date)}}
                                  <strong>({{readableDate($pending_order->date)}})</strong>
@@ -86,6 +102,22 @@
                                  {{$pending_order->user->phone_number}}
                              </td>
                              <td>
+
+                               {{--  <a href="{{route('cart.preview', ['orderId' => $pending_order->id])}}" class="button xx-small pull-right">
+                                    <span class="fa fa-eye"></span>
+                                    View Details
+                                </a> --}}
+
+                                <span class="button xx-small pull-right" data-toggle="modal" data-target=".bs-example-modal-lg{{$key}}">
+                                    <span class="fa fa-eye"></span>
+                                    View Details
+                                </span>
+                                
+                                @include('site.dashboard.cart_preview_modal')
+
+
+                                <h5 class="visible-xs"> <i class="fa fa-ticket"></i> <small>Order Code :</small> {{$pending_order->code}}</h5>
+
                                  @foreach($pending_order->packages as $key => $orderPackage)
                                     <strong>
                                       <i class="fa fa-gift"></i>
@@ -97,11 +129,12 @@
                                     <div class="divider dashed"></div>
                                  @endforeach
 
-                                 <a href="{{route('orders.show',['order'=>$pending_order->id])}}" class="btn btn-primary btn-block  mt-10">
+                                 <a href="#" class="button black btn-block  mt-10">
                                      <span class="fa fa-cloud-upload"></span>
                                      Upload Proof of Payment
                                  </a>
 
+                                 
                              </td>
                          </tr>
                      @endforeach

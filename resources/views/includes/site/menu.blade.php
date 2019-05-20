@@ -154,7 +154,7 @@
                           <div class="cart-total">
                             <h6 class="mb-15"> Total: {{getCurrencySymbol()}}{{currency($cart_total)}}</h6>
                             <a class="button" href="{{route('view-cart')}}">View Cart</a>
-                            <a class="button black" href="javascript:void(0);">Checkout</a>
+                            <a class="button black" href="{{route('cart.terms')}}">Checkout</a>
                           </div>
 
                         </div>

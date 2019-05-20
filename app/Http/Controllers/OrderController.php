@@ -20,6 +20,22 @@ class OrderController extends Controller
         //
     }
 
+    public function terms()
+    {
+        return view('site.bookings.terms_and_conditions');
+    }
+
+
+
+    public function paymentSteps()
+    {
+        return view('site.bookings.payment_steps');
+    }
+
+    
+
+    
+    //Admin Controller
     public function pending()
     {
         $pending_orders = Order::where('process_status',getNewId())
@@ -31,10 +47,32 @@ class OrderController extends Controller
     }
 
 
+
+
     public function viewCart()
     {
         return view('site.bookings.cart');
     }
+
+
+
+
+
+    public function cartPreview($orderId)
+    {
+        $order = \App\Order::where('id',$orderId)
+                            ->where('user_id',Auth::id())
+                            ->where('active_status',1)
+                            ->first();
+
+        if(empty($order)){
+            return redirect()->route('site')->with('error_message','Sorry, Something went wrong!!');
+        }
+
+        return view('site.bookings.cart_preview',compact('order'));
+    }
+
+    
 
 
     
@@ -124,7 +162,7 @@ class OrderController extends Controller
         }
 
 
-        return redirect()->route('site')->with('success_message','Order Submitted Successful!!');
+        return redirect()->route('client-dashboard.pending-payment')->with('success_message','Order Submitted Successful!!');
 
     }
 
@@ -159,6 +197,7 @@ class OrderController extends Controller
         $params = $request->all();
 
         $params['user_id'] = Auth::id();
+        $params['code'] = getUniqueCode('App\Order','code',6);
         $params['process_status'] = getTempId();
         $params['payment_status'] = getPendingPaymentId();
         $params['date'] = Carbon::now();
@@ -228,11 +267,20 @@ class OrderController extends Controller
         //     }
         // }
 
-       
 
+        if(array_key_exists('checkout_direct', $params)){
 
-        return redirect()->back()->with('success_message','Package Added to Cart Successful!!');
+            return redirect()->route('cart.terms');
+
+        }else{
+
+            return redirect()->back()->with('success_message','Package Added to Cart Successful!!');
+
+        }
+
     }
+
+
 
     /**
      * Display the specified resource.

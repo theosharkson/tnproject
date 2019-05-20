@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->string('location')->nullable();
             $table->integer('user_type')->unsigned()->default('1');
             $table->foreign('user_type')->references('id')->on('user_types');
+            $table->integer('dashboard_activated')->default('0')->nullable();
             $table->string('image')->nullable();
             $table->integer('active_status')->default('1');
             $table->integer('updated_by')->unsigned()->nullable();

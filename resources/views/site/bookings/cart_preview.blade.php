@@ -8,8 +8,8 @@
     <div class="row"> 
      <div class="col-lg-12"> 
       <div class="page-title-name">
-          <h1><i class="fa fa-shopping-cart icon"></i> Your Cart</h1>
-          <p>Manage Packages In Your Cart</p>
+          <h1><i class="fa fa-shopping-cart icon"></i>Your Cart Preview</h1>
+          <p>Packages In Your Cart</p>
         </div>
 
 
@@ -34,29 +34,16 @@
           
 
           <div class="row">
-            {{-- <div class="col-lg-3 col-md-3">
-              
-              
-             <div class="pattern  pl-20 pr-20 pt-40 pb-40 text-center add-shadow animated bounceInRight"
-             style="background-image: url({{asset('site-assets/images/pattern/bg-pattern-3.jpg')}}); border-radius: 3px 6pc;"
-             >
-                <h3 class="pl-10"><i class="fa fa-money"></i> TOTAL PRICE:</h3>
-                <h1 class="pl-10">{{getCurrencySymbol()}} <mark id="total_price">344</mark></h1>
-              </div>
-              
-              
-            </div> --}}
-
 
             <div class="col-lg-12 col-md-12 sm-mt-40">
               
-              @if(!empty(Auth::user()->tempOrder))
+              @if(!empty($order))
 
                 @php 
                 $cart_total = 0;
                 @endphp
 
-                @foreach(Auth::user()->tempOrder->packages as $key => $cart_item)
+                @foreach($order->packages as $key => $cart_item)
                    @php 
                       $cart_item_total = getOrderPackagePrice($cart_item->id);
                       $cart_total = $cart_total + $cart_item_total;
@@ -71,12 +58,12 @@
                       </div>
                       <div class="col-lg-8 col-md-8 col-sm-8"> 
                         
-                        <span class="cart-remove-item" data-toggle="tooltip" data-placement="left" title="" data-original-title="Remove this package from your cart.">
+                        {{-- <span class="cart-remove-item" data-toggle="tooltip" data-placement="left" title="" data-original-title="Remove this package from your cart.">
                           <a href="javascript:void(0);" data-toggle="modal" data-target="#cartModal-{{$key}}"> 
                             <i class="fa fa-trash-o"></i> 
                           </a>
                          </span>
-
+ --}}
                         <div class="product-des text-left">
                            <div class="product-title">
                              <h2 href="shop-single.html">{{$cart_item->package->name}}</h2>
@@ -127,14 +114,6 @@
                                        </div>
                                       </div>
                                       
-                                      {{-- 
-                                      <div class="cart-close">
-                                          <p 
-                                             style="font-size: 35px;"
-                                             onclick="removeElement('#added_extra_{{$key}}'); showElement('#extra_item_{{$key}}');">
-                                            <i class="fa fa-times-circle"></i> 
-                                          </p>
-                                       </div> --}}
                                     </div>
                                   @endforeach
 
@@ -150,11 +129,11 @@
 
 
                               </div>
-
+{{-- 
                               <a class="button small mt-20" href="{{route('edit-cart-item',['order_package'=>$cart_item->id])}}">
                                 <i class="ti-pencil-alt2"></i>
                                 Edit This Package
-                              </a>
+                              </a> --}}
                            </div>
                       </div>
                    </div>
@@ -166,7 +145,7 @@
                @endforeach
 
 
-               @if(Auth::user()->tempOrder->packages->count() < 1)
+               @if($order->packages->count() < 1)
                  <div style="text-align: center; color: #c5c4c4;">
                    <h1>
                      <i class="ti-shopping-cart" style="color: #77420026; font-size: 200px;"></i>
@@ -177,28 +156,19 @@
 
 
               <div class="row">
-                <div class="col-md-6  col-md-offset-3">
-                  <div class="gray-bg  pl-50 pr-50 pt-50 pb-50">
-                    <table class="mb-30">
-                      <tbody>
-                        <tr>
-                          <th class="pl-40"><h3>GRAND TOTAL:</h3> </th>
-                          <td class="pl-40"><h3>{{getCurrencySymbol()}} {{currency($cart_total)}}</h3></td>
-                        </tr>
-                      </tbody>
-                    </table>
+                <div class="col-md-6 col-md-offset-3">
+                  <div class="gray-bg  pl-50 pr-50 pt-50 pb-10 text-center " style="background-image: url({{asset('site-assets/images/pattern/bg-pattern-3.jpg')}});">
+                    
+                    <h3 class="pb-30" >
+                      GRAND TOTAL: 
+                      <strong>{{getCurrencySymbol()}}{{currency($cart_total)}}</strong>
+                    </h3>
                    
-                    {{-- <form method="POST" id="order_form" action="{{ route('checkout') }}" >
-                      @csrf
-
-                      <button type="submit" class="button btn-block">Place Order Now <span class="icon-action-redo"></span></button>
-
-                    </form> --}}
-                    <a class="button small btn-block" href="{{route('cart.terms')}}">
+                    {{-- <a class="button small btn-block" href="{{route('cart.terms')}}">
                       
                       <span> Checkout <i style="font-size: 15px; line-height: 5px;" class="ti-archive"></i></span> 
                     </a>
-
+ --}}
                   </div>
                 </div>
               </div>
